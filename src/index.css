@@ -43,13 +43,13 @@ main{
 /* clases para el footer */
 
 .titulofoter{
-    color: aquamarine;
+    color: rgb(0, 242, 161);
 }
 
 .textocolor{
-    color: aqua;
+    color: rgb(95, 251, 251);
 }
+.footerIcon{
+    color: bisque;
 
-.colorFoter{
-    background-color: #4e4f4f;
 }
