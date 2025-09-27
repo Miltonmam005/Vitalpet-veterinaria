@@ -9,7 +9,7 @@ const Menu = () => {
       <Container fluid >
             <Nav.Link href="./index.html">
               <img
-                className="d-inline-block align-top stiloLogoNav"
+                className="d-inline-block m-lg-1 align-top stiloLogoNav"
                 alt="logo Veterinaria"
                 src="./public/LogoVet.png"
                 width="50"
@@ -26,10 +26,9 @@ const Menu = () => {
           >
             <Nav.Link className='fuentetextos' href="#action1">Inicio</Nav.Link>
             <Nav.Link className='fuentetextos' href="#action2">Loguin</Nav.Link>
-            <Nav.Link className='fuentetextos' href="#action3">Registro</Nav.Link>
-            <Nav.Link className='fuentetextos' href="#action4">Solicitar Turno</Nav.Link>
+            <Nav.Link className='fuentetextos' href="#action3">Solicitar Turno</Nav.Link>
             {/* logo del carrito */}
-            <Nav.Link href="#link-de-la-imagen">
+             <Nav.Link href="#"> {/* carrito */}
               <img
                 src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png"
                 width="30"
