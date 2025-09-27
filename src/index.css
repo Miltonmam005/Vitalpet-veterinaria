@@ -1,0 +1,24 @@
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  flex-grow: 1;
+}
+/* color del nav */
+.colorNav {
+  background: #00e701;
+  background: linear-gradient(
+    90deg,
+    rgb(154, 251, 159) 10%,
+    rgb(2, 251, 251) 100%
+  );
+}
+.color-logo-nav {
+  color: rgba(10, 14, 15, 1) !important;
+}
+.fuenteLogo {
+  font-family: "Permanent Marker", serif;
+}
