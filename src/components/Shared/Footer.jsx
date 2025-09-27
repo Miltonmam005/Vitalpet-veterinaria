@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Footer() {
   return (
@@ -42,25 +43,18 @@ function Footer() {
             </ul>
           </Col>
           <Col md={4}>
-            <h5 className=" titulofoter fw-bold mb-3">Síguenos</h5>
-            {/* <div className="d-flex justify-content-center justify-content-md-start "> */}
-            <a href="" className="text-decoration-none text-white">
-              {" "}
-              <i className="bi bi-facebook fs-4"></i>{" "}
-            </a>
-            <a href="" className="text-decoration-none text-white">
-              {" "}
-              <i className="bi bi-twitter fs-4"></i>{" "}
-            </a>
-            <a href="" className="text-decoration-none text-white">
-              {" "}
-              <i className="bi bi-instagram"></i>{" "}
-            </a>
-            <a href="" className="text-decoration-none text-white">
-              {" "}
-              <i className="bi bi-whatsapp"></i>{" "}
-            </a>
-            {/* </div> */}
+            <h5 className="text-uppercase titulofoter fw-bold mb-3">Síguenos</h5>
+            <div className="d-flex justify-content-center justify-content-md-start">
+              <a href="https://facebook.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
+                <i className="bi bi-facebook fs-4"></i>
+              </a>
+              <a href="https://twitter.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
+                <i className="bi bi-twitter fs-4"></i>
+              </a>
+              <a href="https://instagram.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
+                <i className="bi bi-instagram fs-4"></i>
+              </a>
+            </div>
           </Col>
         </Row>
       </Container>
