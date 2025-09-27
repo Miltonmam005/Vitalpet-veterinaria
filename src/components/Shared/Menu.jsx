@@ -6,17 +6,17 @@ import Navbar from 'react-bootstrap/Navbar';
 const Menu = () => {
     return ( <>
     <Navbar expand="lg" className="bg-body-tertiary colorNav" bg="light" data-bs-theme="light">
-      <Container fluid>
+      <Container fluid >
             <Nav.Link href="./index.html">
               <img
                 className="d-inline-block align-top stiloLogoNav"
                 alt="logo Veterinaria"
                 src="./public/LogoVet.png"
-                width="30"
-                height="30"
+                width="50"
+                height="50"
               />
             </Nav.Link>
-        <Navbar.Brand href="/index.html" className="fuenteLogo color-logo-nav">VitalPet</Navbar.Brand>
+        <Navbar.Brand href="/index.html" className="fuenteLogo color-logo-nav fuentetextos">VitalPet</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -24,17 +24,17 @@ const Menu = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Inicio</Nav.Link>
-            <Nav.Link href="#action2">Loguin</Nav.Link>
-            <Nav.Link href="#action3">Registro</Nav.Link>
-            <Nav.Link href="#action4">Solicitar Turno</Nav.Link>
+            <Nav.Link className='fuentetextos' href="#action1">Inicio</Nav.Link>
+            <Nav.Link className='fuentetextos' href="#action2">Loguin</Nav.Link>
+            <Nav.Link className='fuentetextos' href="#action3">Registro</Nav.Link>
+            <Nav.Link className='fuentetextos' href="#action4">Solicitar Turno</Nav.Link>
             {/* logo del carrito */}
             <Nav.Link href="#link-de-la-imagen">
               <img
                 src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png"
                 width="30"
                 height="30"
-                className="d-inline-block align-top tu-clase-personalizada"
+                className="d-inline-block align-top logoCarrito"
                 alt="Logo de carrito"
               />
             </Nav.Link>

@@ -22,7 +22,21 @@ main{
 .fuenteLogo {
   font-family: "Permanent Marker", serif;
 }
+.fuentetextos:hover{
+  transform: scale(1.1); 
+ text-shadow: #292a2a 0px 0px 10px;
+}
 
 .stiloLogoNav {
   border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+.stiloLogoNav:hover {
+  transform: scale(1.1); 
+  box-shadow: 3px 3px 10px #4e4f4f;
+}
+.logoCarrito:hover{
+  transform: scale(1.1); 
+  text-shadow: 3px 3px 10px #202222;
+
 }
