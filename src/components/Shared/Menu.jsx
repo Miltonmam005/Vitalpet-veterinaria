@@ -9,14 +9,13 @@ const Menu = () => {
       <Container fluid>
             <Nav.Link href="./index.html">
               <img
-                className="d-inline-block align-top tu-clase-personalizada"
+                className="d-inline-block align-top stiloLogoNav"
                 alt="logo Veterinaria"
                 src="./public/LogoVet.png"
                 width="30"
                 height="30"
               />
             </Nav.Link>
-
         <Navbar.Brand href="/index.html" className="fuenteLogo color-logo-nav">VitalPet</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
