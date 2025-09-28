@@ -9,7 +9,7 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<sobreNosotros></sobreNosotros>}></Route>
+      <Route path="/sobreNosotros" element={<sobreNosotros></sobreNosotros>}></Route>
       </Routes>
    <Menu></Menu>
      <main className='container my-4'>
