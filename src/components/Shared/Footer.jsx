@@ -3,17 +3,25 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Footer() {
   return (
-    <footer className="bg-dark text-center text-lg-startp-3">
+    <footer className="colorFooter text-center text-lg-startp-3">
       <Container className="text-center text-white">
         <Row>
           <Col
             md={4}
             className="mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start"
           >
+              
             <h1 className="titulofoter">VitalPet</h1>
             <p className="m-0 text-white">
               &copy; VitalPet veterinaria. Todos los derechos reservados.
             </p>
+            <img
+                className="d-inline-block m-lg-1 align-top stiloLogoNav"
+                alt="logo Veterinaria"
+                src="./public/LogoVet.png"
+                width="50"
+                height="50"
+              />
           </Col>
           <Col md={4} className="mb-4 mb-md-0">
             <h5 className="text-uppercase titulofoter fw-bold mb-3">
@@ -44,7 +52,7 @@ function Footer() {
           </Col>
           <Col md={4}>
             <h5 className="text-uppercase titulofoter fw-bold mb-3">Síguenos</h5>
-            <div className="d-flex justify-content-center justify-content-md-start">
+            <div className="d-flex justify-content-center justify-content-md-start ">
               <a href="https://facebook.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
                 <i className="bi bi-facebook fs-4"></i>
               </a>
