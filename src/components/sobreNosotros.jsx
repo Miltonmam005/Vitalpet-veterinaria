@@ -35,25 +35,25 @@ const sobreNosotros = () => {
         </div>
 
         {/* Valores */}
-        <div class="row text-center my-5">
-  <div class="col-md-4">
-    <div class="card shadow border-0 p-3 h-100">
-      <i class="bi bi-heart-fill text-danger fs-1"></i>
-      <h5 class="mt-3">Amor por las mascotas</h5>
+        <div className="row text-center my-5">
+  <div className="col-md-4">
+    <div className="card shadow border-0 p-3 h-100">
+      <i className="bi bi-heart-fill text-danger fs-1"></i>
+      <h5 className="mt-3">Amor por las mascotas</h5>
       <p>Tratamos a cada paciente con cariño y dedicación.</p>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="card shadow border-0 p-3 h-100">
-      <i class="bi bi-shield-check text-success fs-1"></i>
-      <h5 class="mt-3">Confianza</h5>
+  <div className="col-md-4">
+    <div className="card shadow border-0 p-3 h-100">
+      <i className="bi bi-shield-check text-success fs-1"></i>
+      <h5 className="mt-3">Confianza</h5>
       <p>Profesionales certificados con experiencia comprobada.</p>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="card shadow border-0 p-3 h-100">
-      <i class="bi bi-emoji-smile text-primary fs-1"></i>
-      <h5 class="mt-3">Compromiso</h5>
+  <div className="col-md-4">
+    <div className="card shadow border-0 p-3 h-100">
+      <i className="bi bi-emoji-smile text-primary fs-1"></i>
+      <h5 className="mt-3">Compromiso</h5>
       <p>Tu mascota siempre en las mejores manos.</p>
     </div>
   </div>
@@ -68,8 +68,8 @@ const sobreNosotros = () => {
                 <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Jose Benjamin Quiros</h2>
                 <p className="card-text">
-                  fue el encargado del maquetado de  algunas paginas y parte de su logica, asi como de realizar modificaciones en el backend.
-
+                  1. Página Principal: Diseño y desarrollo de la página principal de la veterinaria, incluyendo la estructura y contenido.<br/>
+2. Páginas Informativas: Desarrollo de las páginas informativas como "Acerca de Nosotros" y otras que sean necesarias.
                 </p>
               </div>
             </div>
@@ -80,8 +80,8 @@ const sobreNosotros = () => {
                 <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Milton Ramón  Mamani  </h2>
                 <p className="card-text">
-                  fue el encargado del maquetado de  algunas paginas y parte de su logica, asi como de realizar modificaciones en el backend.
-                  
+                 1. Navbar y Footer: Diseño y desarrollo del navbar y footer que se utilizarán en toda la página web.<br/>
+2. Paginación: Implementación de la paginación para los listados de pacientes, turnos, servicios, etc.
                 </p>
               </div>
             </div>
@@ -92,8 +92,8 @@ const sobreNosotros = () => {
                 <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Santiago Uriel Gonzalez</h2>
                 <p className="card-text">
-                  fue el encargado del maquetado de  algunas paginas y parte de su logica, asi como de realizar modificaciones en el backend.
-                  
+                  1. Administrar Pacientes: Desarrollo del CRUD (Crear, Leer, Actualizar, Eliminar) de pacientes, incluyendo la gestión de historiales médicos.<br/>
+2. Administrar Turnos: Implementación del CRUD de turnos, incluyendo la asignación de turnos a pacientes y veterinarios.
                 </p>
               </div>
             </div>
@@ -102,10 +102,10 @@ const sobreNosotros = () => {
             <div className="card shadow-sm h-100">
                <div className="card-body bg-body-secondary">
                 <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
-                <h2>JCelina Gabriela  Acosta</h2>
+                <h2>Celina Gabriela  Acosta</h2>
                 <p className="card-text">
-                  fue el encargado del maquetado de  algunas paginas y parte de su logica, asi como de realizar modificaciones en el backend.
-                  
+                  1. Login y Registro de Usuarios: Desarrollo del sistema de login y registro de usuarios, incluyendo la validación de datos y seguridad.<br/>
+2. Reserva de Turno: Implementación del sistema de reserva de turnos para los usuarios.
                 </p>
               </div>
             </div>
@@ -116,8 +116,8 @@ const sobreNosotros = () => {
                 <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Tobias Conde</h2>
                 <p className="card-text">
-                  fue el encargado del maquetado de  algunas paginas y parte de su logica, asi como de realizar modificaciones en el backend.
-                  
+                 1. Página Principal del Administrador: Diseño y desarrollo de la página principal del administrador, incluyendo el dashboard y estadísticas.<br/>
+2. CRUD de Servicios: Desarrollo del CRUD de servicios ofrecidos por la veterinaria, incluyendo la gestión de precios y descripciones.
                 </p>
               </div>
             </div>
