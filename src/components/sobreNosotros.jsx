@@ -1,4 +1,6 @@
 import { Image } from "react-bootstrap";
+import milton from "./img/milton.jpeg"
+import benja from "./img/benja.jpeg"
 const sobreNosotros = () => {
   return (
     <>
@@ -65,7 +67,7 @@ const sobreNosotros = () => {
           <div className="col-md-4 mb-3">
             <div className="card shadow-sm h-100">
               <div className="card-body bg-body-secondary">
-                <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
+                <Image src={benja} className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Jose Benjamin Quiros</h2>
                 <p className="card-text">
                   1. Página Principal: Diseño y desarrollo de la página principal de la veterinaria, incluyendo la estructura y contenido.<br/>
@@ -77,7 +79,7 @@ const sobreNosotros = () => {
           <div className="col-md-4 mb-3">
             <div className="card shadow-sm h-100">
                <div className="card-body bg-body-secondary">
-                <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
+                <Image src={milton} className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Milton Ramón  Mamani  </h2>
                 <p className="card-text">
                  1. Navbar y Footer: Diseño y desarrollo del navbar y footer que se utilizarán en toda la página web.<br/>
