@@ -1,6 +1,8 @@
 import { Image } from "react-bootstrap";
-import milton from "./img/milton.jpeg"
-import benja from "./img/benja.jpeg"
+import milton from "../img/milton.jpeg"
+import benja from "../img/benja.jpeg"
+import celina from "../img/celina.jpeg"
+import santiago from "../img/santiago.jpeg"
 const sobreNosotros = () => {
   return (
     <>
@@ -91,7 +93,7 @@ const sobreNosotros = () => {
           <div className="col-md-4 mb-3">
             <div className="card shadow-sm h-100">
                <div className="card-body bg-body-secondary">
-                <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
+                <Image src={santiago} className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Santiago Uriel Gonzalez</h2>
                 <p className="card-text">
                   1. Administrar Pacientes: Desarrollo del CRUD (Crear, Leer, Actualizar, Eliminar) de pacientes, incluyendo la gestión de historiales médicos.<br/>
@@ -103,7 +105,7 @@ const sobreNosotros = () => {
           <div className="col-md-4 mb-3">
             <div className="card shadow-sm h-100">
                <div className="card-body bg-body-secondary">
-                <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
+                <Image src={celina} className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Celina Gabriela  Acosta</h2>
                 <p className="card-text">
                   1. Login y Registro de Usuarios: Desarrollo del sistema de login y registro de usuarios, incluyendo la validación de datos y seguridad.<br/>
@@ -115,7 +117,7 @@ const sobreNosotros = () => {
           <div className="col-md-4 mb-3">
             <div className="card shadow-sm h-100">
                <div className="card-body bg-body-secondary">
-                <Image src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" className="w-100 mb-2 img-circular-sobreNosotros"  />
+                <Image src="https://w7.pngwing.com/pngs/753/432/png-transparent-user-profile-2018-in-sight-user-conference-expo-business-default-business-angle-service-people-thumbnail.png" className="w-100 mb-2 img-circular-sobreNosotros"  />
                 <h2>Tobias Conde</h2>
                 <p className="card-text">
                  1. Página Principal del Administrador: Diseño y desarrollo de la página principal del administrador, incluyendo el dashboard y estadísticas.<br/>

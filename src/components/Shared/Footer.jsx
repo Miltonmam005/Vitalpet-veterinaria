@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-
+import {Link} from "react-router"
 function Footer() {
   return (
     <footer className="colorFooter text-center text-lg-startp-3">
@@ -34,9 +34,9 @@ function Footer() {
                 </a>
               </li>
               <li className="textocolor">
-                <a href="" className="text-decoration-none text-white">
+                <Link to={"/sobreNosotros"} className="text-decoration-none text-white nav-link">
                   Acerca de nosotros
-                </a>
+                </Link>
               </li>
               <li className="textocolor">
                 <a href="" className="text-decoration-none text-white">
