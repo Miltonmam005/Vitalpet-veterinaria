@@ -11,15 +11,15 @@ main{
 }
 /* color del nav */
 .colorNav {
-  background: #00e701;
+  background: #104510;
   background: linear-gradient(
     90deg,
-    rgb(154, 251, 159) 10%,
-    rgb(2, 251, 251) 100%
+    rgb(2, 69, 5) 10%,
+    rgb(8, 116, 0) 100%
    )!important;
 }
 .color-logo-nav {
-  color: rgba(10, 14, 15, 1) !important;
+  color: rgb(0, 0, 0) !important;
 }
 .fuenteLogo {
   font-family: "Permanent Marker", serif;
