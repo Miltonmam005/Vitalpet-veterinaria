@@ -11,7 +11,7 @@ const Menu = () => {
               <img
                 className="d-inline-block m-lg-1 align-top stiloLogoNav"
                 alt="logo Veterinaria"
-                src="./public/LogoVet.png"
+                src="/LogoVet.png"
                 width="50"
                 height="50"
               />
@@ -24,9 +24,9 @@ const Menu = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link className='fuentetextos' href="#action1">Inicio</Nav.Link>
-            <Nav.Link className='fuentetextos' href="#action2">Loguin</Nav.Link>
-            <Nav.Link className='fuentetextos' href="#action3">Solicitar Turno</Nav.Link>
+            <Nav.Link className='fuentetextos' href="./index.html">Inicio</Nav.Link>
+            <Nav.Link className='fuentetextos' href="./pages/Error404.jsx">Login</Nav.Link>
+            <Nav.Link className='fuentetextos' href="/">Solicitar Turno</Nav.Link>
             {/* logo del carrito */}
              <Nav.Link href="#"> {/* carrito */}
               <img

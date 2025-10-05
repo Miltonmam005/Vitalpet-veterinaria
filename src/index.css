@@ -66,3 +66,8 @@ main{
 }
 
 /* Error 404  todos los estilos*/
+.error-image {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 50%;
+} 
