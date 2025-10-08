@@ -201,65 +201,118 @@ const Inicio =()=>{
 <section className="py-4 text-center intercaloclaro">
         <h3>Marcas con las que trabajamos</h3>
             <img src="https://1000logos.net/wp-content/uploads/2020/07/Royal-Canin-Logo.png" alt="Royal Canin logo" className="mx-3" height={40}/>
-            <img src="https://1000logos.net/wp-content/uploads/2020/07/Purina-Logo.png" alt="Purina logo" className="mx-3" height={40}/>
-            <img src="https://1000logos.net/wp-content/uploads/2025/01/Petco-Logo.png" alt="Petco logo" className="mx-3" height={40}/>
-            <img src="" alt="Royal Canin" className="mx-3" height={40}/>
-            <img src="" alt="Royal Canin" className="mx-3" height={40}/>
+            <img src="https://1000logos.net/wp-content/uploads/2020/07/Purina-Logo.png" alt="Purina de logo" className="mx-3" height={40}/>
+            <img src="https://1000logos.net/wp-content/uploads/2025/01/Petco-Logo.png" alt="Petco de logo" className="mx-3" height={40}/>
+            <img src="https://1000logos.net/wp-content/uploads/2024/07/Sheba-Logo-500x281.png" alt="logo de shelba" className="mx-3" height={40}/>
+            <img src="https://1000logos.net/wp-content/uploads/2023/03/Orkin-logo-500x281.png" alt="logo de orkin" className="mx-3" height={40}/>
   </section>
 
 {/* PLANES */}
 <section className="py-5 text-center intercaloverde">
-  <h3>Planes de <span className="text-warning">salud</span></h3>
-  <p>Escoja el mejor cuidado para tu mascota</p>
+  <h3 className="mb-3 Titulosinicio">Planes de <span className="text-warning">salud</span></h3>
+  <p className="mb-5">Escoja el mejor cuidado para tu mascota</p>
+
   <div className="container">
     <div className="row">
       {[
-        {precio:"$20", nombre:"Primeros Pasos", detalle:"Para mascotas de 0 a 1 año"},
-        {precio:"$20", nombre:"Madurando", detalle:"Para mascotas de 2 a 5 años"},
-        {precio:"$20", nombre:"Adultos", detalle:"Para mascotas de 6 a 9 años"},
+        { precio: "$20", nombre: "Primeros Pasos", detalle: "Para mascotas de 0 a 1 año", icono: "bi-emoji-smile" },
+        { precio: "$25", nombre: "Madurando", detalle: "Para mascotas de 2 a 5 años", icono: "bi-heart-pulse" },
+        { precio: "$30", nombre: "Adultos", detalle: "Para mascotas de 6 a 9 años", icono: "bi-shield-check" },
       ].map((plan, i) => (
-        <div className="col-md-4 mb-3" key={i}>
-          <div className="card p-3">
-            <h4>{plan.precio} <small>/mes</small></h4>
-            <h5>{plan.nombre}</h5>
-            <p>{plan.detalle}</p>
+        <div className="col-md-4 mb-4" key={i}>
+          <div
+            className="card border-0 shadow-lg h-100 p-4 rounded-4 position-relative overflow-hidden card-plan cardsgradienteverde"
+           
+          >
+            <div className="mb-3">
+              <i className={`bi ${plan.icono} display-4`}></i>
+            </div>
+            <h4 className="fw-bold">{plan.nombre}</h4>
+            <h2 className="text-warning">{plan.precio} <small className="text-light">/mes</small></h2>
+            <p className="mt-3">{plan.detalle}</p>
+            <button className="btn btn-light text-success fw-semibold mt-auto rounded-pill px-4 py-2">
+              Elegir plan
+            </button>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
 {/* PROFESIONALES */}
 <section className="py-5 text-center intercaloclaro">
-  <h3>Conozca al equipo que cuidará de sus mascotas</h3>
-  <div className="d-flex justify-content-center mt-4">
-    {[...Array(3)].map((_, i) => (
-      <div className="card mx-2 p-3" style={{width:"200px"}} key={i}>
-        <img src="/doctor.jpg" alt="Doctor" className="rounded-circle mx-auto" width={100}/>
-        <h6 className="mt-2">Dr. Pablo Sanchez</h6>
-      </div>
-    ))}
+  <h3 className="mb-4">Conozca al equipo que cuidará de sus mascotas</h3>
+  <div className="container">
+    <div className="row justify-content-center">
+      {[
+        { nombre: "Dr. Pablo Sanchez", especialidad: "Cirujano veterinario", img: "https://images.pexels.com/photos/6235241/pexels-photo-6235241.jpeg" },
+        { nombre: "Dra. Laura Torres", especialidad: "Medicina general", img: "https://images.pexels.com/photos/5214995/pexels-photo-5214995.jpeg" },
+        { nombre: "Dr. Martín Gómez", especialidad: "Dermatología animal", img: "https://images.pexels.com/photos/7468978/pexels-photo-7468978.jpeg" },
+      ].map((prof, i) => (
+        <div className="col-md-4 col-lg-3 mb-4" key={i}>
+          <div
+            className="card border-0 shadow-lg rounded-4 overflow-hidden h-100 card-prof"
+            style={{
+              transition: "transform 0.3s, box-shadow 0.3s",
+            }}
+          >
+            <div
+              className="p-4 text-center cardsgradienteverde"
+            >
+              <img
+                src={prof.img}
+                alt={prof.nombre}
+                className="rounded-circle border border-3 border-light mb-3 imagenProfesional"
+                width="100"
+                height="100"
+              />
+              <h5 className="fw-bold">{prof.nombre}</h5>
+              <p className="mb-3">{prof.especialidad}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
+
 
 {/* TESTIMONIOS */}
 <section className="py-5 intercaloverde">
   <div className="container text-center">
-    <h3><span className="text-warning">Testimonios</span> | Tu opinión nos importa</h3>
-    <div><button className="btn btn-success">Deja tu huella</button></div>
+    <h3 className="mb-4">
+      <span className="text-warning">Testimonios</span> | Tu opinión nos importa
+    </h3>
+
     <div className="row">
-      {["Increíble!!", "Excelente.", "Increíble!!"].map((test, i) => (
-        <div className="col-md-4 mb-3" key={i}>
-          <div className="card p-3">
-            <h5>{test}</h5>
-            <p>★★★★★</p>
-            <p>Lorem ipsum dolor sit amet.</p>
+      {[
+        { nombre: "María López", texto: "Excelente atención, mi perro salió feliz!", estrellas: 5 },
+        { nombre: "Carlos Díaz", texto: "Muy profesionales y atentos en todo momento.", estrellas: 4 },
+        { nombre: "Lucía Torres", texto: "Gran experiencia, los recomiendo totalmente!", estrellas: 5 },
+      ].map((test, i) => (
+        <div className="col-md-4 mb-4" key={i}>
+          <div
+            className="card border-0 shadow-lg rounded-4 p-4 h-100 card-test cardservicioamarillo"
+            style={{
+              background:" #fff8d8ff",
+              transition: "transform 0.3s, box-shadow 0.3s",
+            }}
+          >
+            <i className="bi bi-chat-quote text-success display-5 mb-3"></i>
+            <p className="fst-italic">"{test.texto}"</p>
+            <p className="text-warning">
+              {"★".repeat(test.estrellas)}{"☆".repeat(5 - test.estrellas)}
+            </p>
+            <h6 className="fw-bold mt-2">{test.nombre}</h6>
           </div>
         </div>
       ))}
     </div>
   </div>
+
 </section>
+
     </>
   )
 }
