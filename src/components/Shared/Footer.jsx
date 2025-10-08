@@ -18,7 +18,7 @@ function Footer() {
             <img
                 className="d-inline-block m-lg-1 align-top stiloLogoNav"
                 alt="logo Veterinaria"
-                src="./public/LogoVet.png"
+                src="/LogoVet.png"
                 width="50"
                 height="50"
               />
