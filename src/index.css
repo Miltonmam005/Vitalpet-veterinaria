@@ -87,9 +87,40 @@ main{
   font-size:100px;
   font-weight:bold;
 }
+.iconosServicio{
+  font-size:80px;
+}
 .intercaloverde{
   background-color:#4c7255;
 }
 .intercaloclaro{
-  background-color:#fff4c4ff;
+  background-color: #fff8d8ff;
+}
+.cardservicioverde{
+background-color: #30572aff;
+}
+.cardservicioamarillo{
+  background-color: #ebc14dff;
+}
+.radius{
+  border-radius:5px;
+}
+.imgCardIndex{
+ height:210px;
+ object-fit:cover;
+}
+.cardservicioamarillo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardservicioamarillo .card-body {
+  flex-grow: 1;
+}
+
+.imgCardIndex {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
