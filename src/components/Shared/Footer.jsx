@@ -1,11 +1,73 @@
-import React from 'react';
-
-const Footer = () => {
-    return (
-        <div>
-            {/* aca ira el Footer */}
-        </div>
-    );
-};
+import { Container, Row, Col } from "react-bootstrap";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import {Link} from "react-router"
+function Footer() {
+  return (
+    <footer className="colorFooter text-center text-lg-startp-3">
+      <Container className="text-center text-white">
+        <Row>
+          <Col
+            md={4}
+            className="mb-4 mb-md-0 d-flex flex-column align-items-center align-items-md-start"
+          >
+              
+            <h1 className="titulofoter">VitalPet</h1>
+            <p className="m-0 text-white">
+              &copy; VitalPet veterinaria. Todos los derechos reservados.
+            </p>
+            <img
+                className="d-inline-block m-lg-1 align-top stiloLogoNav"
+                alt="logo Veterinaria"
+                src="/LogoVet.png"
+                width="50"
+                height="50"
+              />
+          </Col>
+          <Col md={4} className="mb-4 mb-md-0">
+            <h5 className="text-uppercase titulofoter fw-bold mb-3">
+              Enlaces Rápidos
+            </h5>
+            <ul className="list-unstyled ">
+              <li className="textocolor">
+                <a href="" className="text-decoration-none text-white ">
+                  Contacto
+                </a>
+              </li>
+              <li className="textocolor">
+                <Link to={"/sobreNosotros"} className="text-decoration-none text-white nav-link">
+                  Acerca de nosotros
+                </Link>
+              </li>
+              <li className="textocolor">
+                <a href="" className="text-decoration-none text-white">
+                  Subscripciones
+                </a>
+              </li>
+              <li className="textocolor">
+                <a href="" className="text-decoration-none text-white">
+                  Solicituides de Plan
+                </a>
+              </li>
+            </ul>
+          </Col>
+          <Col md={4}>
+            <h5 className="text-uppercase titulofoter fw-bold mb-3">Síguenos</h5>
+            <div className="d-flex justify-content-center justify-content-md-start ">
+              <a href="https://facebook.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
+                <i className="bi bi-facebook fs-4"></i>
+              </a>
+              <a href="https://twitter.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
+                <i className="bi bi-twitter fs-4"></i>
+              </a>
+              <a href="https://instagram.com/VitalPet" target="_blank" rel="noopener noreferrer" className="text-reset me-3 footerIcon">
+                <i className="bi bi-instagram fs-4"></i>
+              </a>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+}
 
 export default Footer;

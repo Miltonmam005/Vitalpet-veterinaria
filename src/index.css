@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  flex-grow: 1;
+}
+/* color del nav */
+.colorNav {
+  background: #104510;
+  background: linear-gradient(
+    90deg,
+    rgb(2, 69, 5) 10%,
+    rgb(8, 116, 0) 100%
+   )!important;
+}
+.color-logo-nav {
+  color: rgb(0, 0, 0) !important;
+}
+.fuenteLogo {
+  font-family: "Permanent Marker", serif;
+}
+.fuentetextos:hover{
+  transform: scale(1.1); 
+ text-shadow: #292a2a 0px 0px 10px;
+}
+
+.stiloLogoNav {
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+.stiloLogoNav:hover {
+  transform: scale(1.1); 
+  box-shadow: 3px 3px 10px #4e4f4f;
+}
+.logoCarrito:hover{
+  transform: scale(1.4); 
+ 
+}
+
+/*sobre nosotros css*/
+.img-circular-sobreNosotros {
+  width: 100%;          /* ocupa todo el ancho del contenedor */
+  aspect-ratio: 1/1;    /* asegura que alto = ancho → cuadrado */
+  border-radius: 50%;   /* convierte el cuadrado en círculo */
+  object-fit: cover;    /* recorta la imagen para que no se deforme */
+/* clases para el footer */
+}
+.titulofoter{
+    color: rgb(0, 242, 161);
+}
+.textocolor:hover {
+    text-shadow: #03fcd2 0px 0px 10px; 
+  transform: translateY(-3px); 
+}
+/* iconos foter */
+.footerIcon {
+  text-decoration: none; 
+  transition: color 0.3s ease, transform 0.2s ease !important;  
+}
+
+.footerIcon:hover {
+  color: #03fcd2 !important; 
+  transform: translateY(-3px); 
+}
+.colorFooter{
+  background-color: #002400;
+}
+<<<<<<< HEAD
+{/*inicio*/}
+.hero {
+  min-height: 400px; /* altura mínima */
+  display: flex;
+  align-items: center; /* centra verticalmente */
+}
+
+.hero-img {
+  max-height: 300px; /* límite de alto */
+  object-fit: cover;
+  border-radius: 10px;
+}
+.iconosIndex{
+  width:50px;
+  height:50px;
+}
+.Titulosinicio{
+    font-family: "Oswald", sans-serif;
+}
+.TitulosinicioTamaño{
+  font-size:100px;
+  font-weight:bold;
+}
+.iconosServicio{
+  font-size:80px;
+}
+.intercaloverde{
+  background-color:#4c7255;
+}
+.intercaloclaro{
+  background-color: #fff8d8ff;
+}
+.cardservicioverde{
+background-color: #30572aff;
+}
+.cardservicioamarillo{
+  background-color: #ddbb5cff;
+}
+.radius{
+  border-radius:5px;
+}
+.imgCardIndex{
+ height:210px;
+ object-fit:cover;
+}
+.cardservicioamarillo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardservicioamarillo .card-body {
+  flex-grow: 1;
+}
+
+.imgCardIndex {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.card-plan:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      }
+.card-prof:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      }
+      .imagenProfesional{
+        object-fit:cover;
+      }
+      .cardsgradienteverde{
+         background: linear-gradient(135deg, #198754, #20c997);
+              color: #ffffffff;
+              transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card-test:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+=======
+
+/* Error 404  todos los estilos*/
+.error-image {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 50%;
+} 
+>>>>>>> 66c275b50fd64cc9a1b1f81f488c8b079656458c
