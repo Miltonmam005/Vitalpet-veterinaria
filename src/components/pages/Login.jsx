@@ -36,7 +36,7 @@ export default function Login() {
             className="right-side d-flex align-items-center justify-content-center"
           >
             <div className="login-form w-100 px-4 px-md-5">
-              <h2 className="login-title">Login</h2>
+              <h2 className="login-title text-center">Inicia Sesión</h2>
               <Form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <Form.Group className="mb-3">
                   <Form.Control
@@ -88,20 +88,18 @@ export default function Login() {
                   Ingresar
                 </Button>
                 <div className="login-links">
-                  <p className="mb-1 text-muted small">
-                    ¿Olvidaste tu contraseña?
-                  </p>
+                  <p className="mb-1 text-muted  text-center"></p>
                   <Button
                     variant="link"
-                    className="p-0 m-0 text-success fw-semibold text-decoration-none"
+                    className="p-0 m-0 text-success text-decoration-none d-flex  justify-content-center"
                     as={Link}
-                    to="/recuperar"
+                    to="/error404"
                   >
-                    Recuperarla
+                    ¿Olvidaste tu contraseña?
                   </Button>
                 </div>
-                <div className="login-links mt-3">
-                  <span className="text-muted small">¿No tienes cuenta?</span>{" "}
+                <div className="login-links mt-3 d-flex justify-content-center align-items-center gap-1">
+                  <span className="text-muted small">¿No tienes cuenta?</span>
                   <Button
                     variant="link"
                     className="p-0 text-success fw-bold text-decoration-none"
