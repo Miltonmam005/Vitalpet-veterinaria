@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import errorImage from "../../assets/errorgat.404.jpg";
-import "../../../index.css";
+import "../../../src/index.css";
 import { Link } from "react-router";
 
 const Error404 = () => {
