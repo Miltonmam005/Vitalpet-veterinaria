@@ -27,7 +27,7 @@ export default function Login() {
             <img
               src={icono}
               alt="Mascota veterinaria"
-              className="login-illustration"
+              className="login-icono"
             />
           </Col>
           <Col
