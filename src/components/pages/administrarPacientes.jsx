@@ -1,6 +1,5 @@
 
-
-const administrarPacientes = () => {
+export const administrarPacientes = () => {
     return (
         <>
         <section className="container">
