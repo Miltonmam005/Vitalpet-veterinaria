@@ -55,29 +55,29 @@ const AdministrarTurnos = () => {
         </Modal.Header>
         <Modal.Body>
            <Form>
-      <Form.Group className="mb-3" controlId="formDetalleCita">
+            <Form.Group className="mb-3" controlId="formDetalleCita">
         <Form.Label>Detalle de cita</Form.Label>
-        <Form.Control type="text" placeholder="Jose Quipildor" required/>
+        <Form.Control type="text" placeholder="Jose Quipildor" required maxLength={100}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formVeterinario">
         <Form.Label>Veterinario</Form.Label>
-        <Form.Control type="text" placeholder="Martin Gomez" required/>
+        <Form.Control type="text" placeholder="Martin Gomez" required maxLength={70}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formMascota">
         <Form.Label>Mascota</Form.Label>
-        <Form.Control type="text" placeholder="Rocky" required/>
+        <Form.Control type="text" placeholder="Rocky" required maxLength={70}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formSintomas">
         <Form.Label>Sintomas</Form.Label>
-        <Form.Control type="text" placeholder="diarrea" required/>
+        <Form.Control type="text" placeholder="diarrea" required maxLength={150}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formFecha">
         <Form.Label>Fecha</Form.Label>
-        <Form.Control type="date" placeholder="15/10/25" required/>
+        <Form.Control type="date" placeholder="15/10/25" required maxLength={100}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formHora">
         <Form.Label>Especie</Form.Label>
-        <Form.Control type="tel" placeholder="16:00" required/>
+        <Form.Control type="tel" placeholder="16:00" required maxLength={150}/>
       </Form.Group>
            </Form>
         </Modal.Body>
@@ -85,7 +85,7 @@ const AdministrarTurnos = () => {
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" onSubmit={handleClose}>
+          <Button variant="primary" onClick={handleClose}>
             Guardar
           </Button>
         </Modal.Footer>
