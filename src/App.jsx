@@ -6,6 +6,7 @@ import Footer from "./components/shared/Footer.jsx";
 import Inicio from "./components/Inicio";
 import Login from "./components/pages/Login.jsx";
 import Error404 from "./components/pages/Error404.jsx";
+import Contact from "./components/pages/Contact.jsx";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
             element={<SobreNosotros></SobreNosotros>}
           ></Route>
           <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="*" element={<Error404></Error404>}></Route>
         </Routes>
         <Footer />
