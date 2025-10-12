@@ -57,33 +57,33 @@ import Form from 'react-bootstrap/Form';
         </Modal.Header>
         <Modal.Body>
            <Form>
-      <Form.Group className="mb-3" controlId="formNombreDueño">
+            <Form.Group className="mb-3" controlId="formNombreDueño">
         <Form.Label>Nombre y Apellido</Form.Label>
-        <Form.Control type="text" placeholder="Jose Quipildor" required/>
+        <Form.Control type="text" placeholder="Jose Quipildor" required maxLength={70}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="josequipildor90@hotmail.com" required/>
+        <Form.Control type="email" placeholder="josequipildor90@hotmail.com" required maxLength={150}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formTelefono">
         <Form.Label>Telefono</Form.Label>
-        <Form.Control type="number" placeholder="+14509901177" required/>
+        <Form.Control type="number" placeholder="+14509901177" required maxLength={50}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formDireccion">
         <Form.Label>Direccion</Form.Label>
-        <Form.Control type="text" placeholder="Av. Alem 2000" required/>
+        <Form.Control type="text" placeholder="Av. Alem 2000" required maxLength={150}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formNombreMascota">
         <Form.Label>Nombre de la Mascota</Form.Label>
-        <Form.Control type="text" placeholder="Rocky" required/>
+        <Form.Control type="text" placeholder="Rocky" required maxLength={50}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formEspecie">
         <Form.Label>Especie</Form.Label>
-        <Form.Control type="text" placeholder="Perro" required/>
+        <Form.Control type="text" placeholder="Perro" required maxLength={50}/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formRaza">
         <Form.Label>Raza</Form.Label>
-        <Form.Control type="text" placeholder="Saluki" required/>
+        <Form.Control type="text" placeholder="Saluki" required maxLength={50}/>
       </Form.Group>
            </Form>
         </Modal.Body>
@@ -91,7 +91,7 @@ import Form from 'react-bootstrap/Form';
           <Button variant="secondary" onClick={handleClose}>
             Cerrar
           </Button>
-          <Button variant="primary" onSubmit={handleClose}>
+          <Button variant="primary" onClick={handleClose}>
             Guardar
           </Button>
         </Modal.Footer>
