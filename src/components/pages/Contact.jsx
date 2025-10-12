@@ -1,6 +1,7 @@
 import "../Styles/contact.css";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   const {
@@ -9,24 +10,24 @@ const Contact = () => {
     formState: { errors },
     reset,
   } = useForm();
+
   const onSubmit = (data) => {
     console.log("Datos enviados:", data);
     alert("Mensaje enviado con éxito 🐾");
     reset();
   };
-
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col md={6}>
-            <h2>Contactanos</h2>
+    <div className="contact-page">
+      <Container className="contact-container">
+        <Row className="contact-content">
+          <Col md={6} className="contact-info">
+            <h2 className="mt-4 text-warning">Contactanos |</h2>
             <p className="subtitle">
               Tu mascota merece lo mejor. Contactanos para consultas, turnos o
               urgencias.
             </p>
 
-            <div>
+            <div className="info-section">
               <h4>Ponete en contacto</h4>
               <p>
                 Estamos acá para ayudarte con cualquier duda o necesidad que
@@ -34,20 +35,29 @@ const Contact = () => {
                 responderemos lo antes posible!
               </p>
 
-              <ul>
+              <ul className="info-list">
                 <li>
+                  <span className="icon">
+                    <FaMapMarkerAlt />
+                  </span>
                   <div>
                     <strong>Dirección</strong>
                     <p>1234 Veterinaria, San Miguel de Tucumán, Argentina</p>
                   </div>
                 </li>
                 <li>
+                  <span className="icon">
+                    <FaPhoneAlt />
+                  </span>
                   <div>
                     <strong>Teléfono</strong>
                     <p>(54) 381-7830</p>
                   </div>
                 </li>
                 <li>
+                  <span className="icon">
+                    <FaEnvelope />
+                  </span>
                   <div>
                     <strong>E-mail</strong>
                     <p>contact@vitalpet.com</p>
@@ -56,7 +66,7 @@ const Contact = () => {
               </ul>
             </div>
           </Col>
-          <Col md={6}>
+          <Col md={6} className="contact-form">
             <h4>Enviar un mensaje</h4>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group controlId="formName" className="mb-3">
@@ -119,7 +129,6 @@ const Contact = () => {
                 Enviar
               </Button>
             </Form>
-
             <p className="text-muted mt-3 small">
               Respetamos tu privacidad. Tus datos están seguros con nosotros.
             </p>
@@ -127,7 +136,7 @@ const Contact = () => {
         </Row>
         <Row>
           <Col>
-            <div>
+            <div className="map-container">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.105916739557!2d-65.207167!3d-26.836583299999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225d3ad7f30f1d%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1760293796926!5m2!1ses-419!2sar"
                 allowFullScreen
