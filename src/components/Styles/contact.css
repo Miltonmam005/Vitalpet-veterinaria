@@ -108,7 +108,9 @@
   border: none;
   border-radius: 10px;
   padding: 10px 25px;
+  width: 140px;
   font-weight: 600;
+
   transition: all 0.3s ease;
 }
 
