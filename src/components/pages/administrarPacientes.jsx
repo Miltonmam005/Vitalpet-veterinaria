@@ -1,12 +1,20 @@
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+ 
+  const AdmistrarPacientes = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-export const administrarPacientes = () => {
     return (
         <>
-        <section className="container">
+            <section className="container">
             <div className='d-flex justify-content-between align-items-center mt-5'>
                 <h1 className=" display-4">Pacientes</h1>
                 <div>
-                  <button className='btn btn-primary' type="button" data-bs-toggle="modal" data-bs-target="#modalPacientes"><i className="bi bi-file-earmark-arrow-up"></i></button>
+                  <Button variant="primary" onClick={handleShow}><i className="bi bi-file-earmark-arrow-up"></i></Button>
                 </div>
             </div>
             <div className='my-4 table-responsive'>
@@ -43,50 +51,53 @@ export const administrarPacientes = () => {
                 </table>
             </div>
         </section>
-        <div class="modal fade" id="modalPacientes" tabindex="-1" aria-labelledby="modalPacientes" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modalPacientes">Pacientes</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="formPacientes">
-            <div class="mb-3">
-  <label for="nombreDueño" class="form-label">Nombre y Apellido</label>
-  <input type="text" class="form-control" id="nombreDueño" placeholder="Juan Gutierrez" required/>
-</div>
- <div class="mb-3">
-  <label for="email" class="form-label">Email</label>
-  <input type="email" class="form-control" id="email" placeholder="juangutti4@gmail.com" required/>
-</div> <div class="mb-3">
-  <label for="telefono" class="form-label">Teléfono</label>
-  <input type="text" class="form-control" id="telefono" placeholder="+1(825)603-6625" required/>
-</div> <div class="mb-3">
-  <label for="direccion" class="form-label">Direccion</label>
-  <input type="text" class="form-control" id="direccion" placeholder="Country Jockey Club" required/>
-</div>
- <div class="mb-3">
-  <label for="nombreMascota" class="form-label">Nombre de la mascota</label>
-  <input type="text" class="form-control" id="nombreMascota" placeholder="Alonso" required/>
-</div> <div class="mb-3">
-  <label for="especie" class="form-label">Especie</label>
-  <input type="text" class="form-control" id="especie" placeholder="Perro" required/>
-</div> <div class="mb-3">
-  <label for="raza" class="form-label">Raza</label>
-  <input type="text" class="form-control" id="raza" placeholder="Saluki" required/>
-</div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Pacientes</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+           <Form>
+      <Form.Group className="mb-3" controlId="formNombreDueño">
+        <Form.Label>Nombre y Apellido</Form.Label>
+        <Form.Control type="text" placeholder="Jose Quipildor" required/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formEmail">
+        <Form.Label>Email</Form.Label>
+        <Form.Control type="email" placeholder="josequipildor90@hotmail.com" required/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formTelefono">
+        <Form.Label>Telefono</Form.Label>
+        <Form.Control type="number" placeholder="+14509901177" required/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formDireccion">
+        <Form.Label>Direccion</Form.Label>
+        <Form.Control type="text" placeholder="Av. Alem 2000" required/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formNombreMascota">
+        <Form.Label>Nombre de la Mascota</Form.Label>
+        <Form.Control type="text" placeholder="Rocky" required/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formEspecie">
+        <Form.Label>Especie</Form.Label>
+        <Form.Control type="text" placeholder="Perro" required/>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formRaza">
+        <Form.Label>Raza</Form.Label>
+        <Form.Control type="text" placeholder="Saluki" required/>
+      </Form.Group>
+           </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cerrar
+          </Button>
+          <Button variant="primary" onSubmit={handleClose}>
+            Guardar
+          </Button>
+        </Modal.Footer>
+      </Modal>
         </>
     );
 };
 
-export default administrarPacientes;
+export default AdmistrarPacientes;
