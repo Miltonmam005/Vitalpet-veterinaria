@@ -2,8 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './components/shared/Menu.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router';
 import SobreNosotros from './components/pages/sobreNosotros.jsx';
-import Footer from "./components/shared/Footer.jsx"
+import Footer from "./components/Shared/Footer.jsx"
+import Error404 from './components/pages/Error404.jsx';
 import Inicio from './components/Inicio';
+
+
 function App() {
   return (
     <>
@@ -12,6 +15,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Inicio></Inicio>}></Route>
       <Route path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
+      <Route path="*" element={<Error404></Error404>}></Route>
       </Routes>
       <Footer/>
       </BrowserRouter>

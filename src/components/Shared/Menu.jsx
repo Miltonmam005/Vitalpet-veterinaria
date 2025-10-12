@@ -16,7 +16,7 @@ const Menu = () => {
                 height="50"
               />
             </Nav.Link>
-        <Navbar.Brand href="/index.html" className="fuenteLogo color-logo-nav fuentetextos">VitalPet</Navbar.Brand>
+        <Navbar.Brand href="./" className="fuenteLogo color-logo-nav fuentetextos">VitalPet</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -24,8 +24,8 @@ const Menu = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link className='fuentetextos' href="./index.html">Inicio</Nav.Link>
-            <Nav.Link className='fuentetextos' href="./pages/Error404.jsx">Login</Nav.Link>
+            <Nav.Link className='fuentetextos' href="./">Inicio</Nav.Link>
+            <Nav.Link className='fuentetextos' href="./src/components/pages/Error404.jsx">Login</Nav.Link>
             <Nav.Link className='fuentetextos' href="/">Solicitar Turno</Nav.Link>
             {/* logo del carrito */}
              <Nav.Link href="#"> {/* carrito */}
