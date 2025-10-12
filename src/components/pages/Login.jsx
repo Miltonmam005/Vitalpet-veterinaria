@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
 
-export default function Login() {
+const Login = () => {
   const {
     register,
     handleSubmit,
@@ -116,4 +116,6 @@ export default function Login() {
       </Container>
     </div>
   );
-}
+};
+
+export default Login;
