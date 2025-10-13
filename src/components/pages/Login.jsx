@@ -48,8 +48,10 @@ export default function Login() {
                     {...register("email", {
                       required: "El email es obligatorio",
                       pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Formato inválido",
+                        value:
+                          /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                        message:
+                          "El email debe tener un formato valido, por ej: pedro@gmail.com",
                       },
                     })}
                   />
@@ -69,9 +71,11 @@ export default function Login() {
                     }`}
                     {...register("password", {
                       required: "La contraseña es obligatoria",
-                      minLength: {
-                        value: 6,
-                        message: "Debe tener al menos 6 caracteres",
+                      pattern: {
+                        value:
+                          /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
+                        message:
+                          "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.",
                       },
                     })}
                   />
