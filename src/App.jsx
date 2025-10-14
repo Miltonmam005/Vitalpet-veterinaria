@@ -7,6 +7,7 @@ import Inicio from "./components/Inicio";
 import Login from "./components/pages/Login.jsx";
 import Error404 from "./components/pages/Error404.jsx";
 import Contact from "./components/pages/Contact.jsx";
+import Register from "./components/pages/Register.jsx";
 import { useEffect, useState } from "react";
 function App() {
   const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || {};
@@ -30,6 +31,7 @@ function App() {
             path="/login"
             element={<Login setUsuarioAdmin={setUsuarioAdmin}></Login>}
           ></Route>
+          <Route path="/registro" element={<Register></Register>}></Route>
           <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="*" element={<Error404></Error404>}></Route>
         </Routes>

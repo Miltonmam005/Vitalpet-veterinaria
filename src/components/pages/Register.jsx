@@ -1,45 +1,32 @@
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router";
-import "../Styles/login.css";
+import { Link } from "react-router";
+import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
-import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
-const Login = ({ setUsuarioAdmin }) => {
+
+const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
+    reset,
   } = useForm();
-  const navegacion = useNavigate();
 
-  const iniciarSesion = async (usuario) => {
-    const respuesta = await login(usuario);
-    if (respuesta.status === 200) {
-      const datosUsuario = await respuesta.json();
-      setUsuarioAdmin({
-        nombreUsuario: datosUsuario.nombreUsuario,
-        token: datosUsuario.token,
-      });
-      Swal.fire({
-        title: "Inicio de sesion correcto",
-        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
-        icon: "success",
-      });
-
-      navegacion("/administrador");
-    } else {
-      Swal.fire({
-        title: "Error al iniciar sesion",
-        text: `Credenciales incorrectas`,
-        icon: "error",
-      });
-    }
+  const onSubmit = (data) => {
+    console.log("Usuario a registrar:", data);
+    Swal.fire({
+      title: "Registro enviado",
+      text: "Mira la consola para ver los datos",
+      icon: "success",
+    });
+    reset();
   };
 
   return (
     <div className="login-wrapper">
-      <Container fluid className="login-container">
+      <Container fluid className="register-container">
         <Row className="g-0">
           <Col
             md={6}
@@ -51,14 +38,44 @@ const Login = ({ setUsuarioAdmin }) => {
               className="login-icono"
             />
           </Col>
+
           <Col
             xs={12}
             md={6}
             className="right-side d-flex align-items-center justify-content-center"
           >
             <div className="login-form w-100 px-4 px-md-5">
-              <h2 className="login-title text-center">Inicia Sesión</h2>
-              <Form onSubmit={handleSubmit(iniciarSesion)}>
+              <h2 className="login-title text-center mb-4">Crear cuenta</h2>
+
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                {/* Nombre */}
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="text"
+                    placeholder="Nombre de usuario"
+                    className={`input-field ${
+                      errors.nombreUsuario ? "is-invalid" : ""
+                    }`}
+                    {...register("nombreUsuario", {
+                      required: "El nombre es obligatorio",
+                      minLength: {
+                        value: 2,
+                        message: "Debe tener al menos 2 caracteres",
+                      },
+                      maxLength: {
+                        value: 50,
+                        message: "Debe tener menos de 50 caracteres",
+                      },
+                    })}
+                  />
+                  {errors.nombreUsuario && (
+                    <Form.Text className="text-danger small">
+                      {errors.nombreUsuario.message}
+                    </Form.Text>
+                  )}
+                </Form.Group>
+
+                {/* Email */}
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
@@ -70,7 +87,7 @@ const Login = ({ setUsuarioAdmin }) => {
                       required: "El email es obligatorio",
                       pattern: {
                         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Formato inválido",
+                        message: "Formato de email inválido",
                       },
                     })}
                   />
@@ -81,10 +98,11 @@ const Login = ({ setUsuarioAdmin }) => {
                   )}
                 </Form.Group>
 
+                {/* Contraseña */}
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     className={`input-field ${
                       errors.password ? "is-invalid" : ""
                     }`}
@@ -102,32 +120,47 @@ const Login = ({ setUsuarioAdmin }) => {
                     </Form.Text>
                   )}
                 </Form.Group>
+
+                {/* Confirmar contraseña */}
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="password"
+                    placeholder="Confirmar contraseña"
+                    className={`input-field ${
+                      errors.confirmarPassword ? "is-invalid" : ""
+                    }`}
+                    {...register("confirmarPassword", {
+                      required: "Debes confirmar la contraseña",
+                      validate: (value) =>
+                        value === watch("password") ||
+                        "Las contraseñas no coinciden",
+                    })}
+                  />
+                  {errors.confirmarPassword && (
+                    <Form.Text className="text-danger small">
+                      {errors.confirmarPassword.message}
+                    </Form.Text>
+                  )}
+                </Form.Group>
+
+                {/* Botón */}
                 <Button
                   type="submit"
                   className="w-100 login-button fw-semibold py-2 mb-3"
                 >
-                  Ingresar
+                  Registrarse
                 </Button>
-                <div className="login-links">
-                  <p className="mb-1 text-muted  text-center"></p>
-                  <Button
-                    variant="link"
-                    className="p-0 m-0 text-success text-decoration-none d-flex  justify-content-center"
-                    as={Link}
-                    to="/error404"
-                  >
-                    ¿Olvidaste tu contraseña?
-                  </Button>
-                </div>
-                <div className="login-links mt-3 d-flex justify-content-center align-items-center gap-1">
-                  <span className="text-muted small">¿No tienes cuenta?</span>
+
+                {/* Enlace a login */}
+                <div className="login-links d-flex justify-content-center align-items-center gap-1">
+                  <span className="text-muted small">¿Ya tienes cuenta?</span>
                   <Button
                     variant="link"
                     className="p-0 text-success fw-bold text-decoration-none"
                     as={Link}
-                    to="/registro"
+                    to="/login"
                   >
-                    Registrarse
+                    Iniciar sesión
                   </Button>
                 </div>
               </Form>
@@ -139,4 +172,4 @@ const Login = ({ setUsuarioAdmin }) => {
   );
 };
 
-export default Login;
+export default Register;
