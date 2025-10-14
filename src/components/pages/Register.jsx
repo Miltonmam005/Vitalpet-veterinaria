@@ -38,17 +38,17 @@ const Register = () => {
               className="login-icono"
             />
           </Col>
-
           <Col
             xs={12}
             md={6}
             className="right-side d-flex align-items-center justify-content-center"
           >
             <div className="login-form w-100 px-4 px-md-5">
-              <h2 className="login-title text-center mb-4">Crear cuenta</h2>
+              <h2 className="login-title text-center mb-4 text-warning">
+                Crear cuenta
+              </h2>
 
               <Form onSubmit={handleSubmit(onSubmit)}>
-                {/* Nombre */}
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="text"
@@ -74,8 +74,6 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-
-                {/* Email */}
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
@@ -97,8 +95,6 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-
-                {/* Contraseña */}
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="password"
@@ -120,8 +116,6 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-
-                {/* Confirmar contraseña */}
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="password"
@@ -142,16 +136,12 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-
-                {/* Botón */}
                 <Button
                   type="submit"
-                  className="w-100 login-button fw-semibold py-2 mb-3"
+                  className="w-100 btn-success fw-semibold py-2 mb-3"
                 >
                   Registrarse
                 </Button>
-
-                {/* Enlace a login */}
                 <div className="login-links d-flex justify-content-center align-items-center gap-1">
                   <span className="text-muted small">¿Ya tienes cuenta?</span>
                   <Button

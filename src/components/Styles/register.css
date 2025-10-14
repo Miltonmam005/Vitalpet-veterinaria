@@ -4,7 +4,22 @@
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  border-top: #ffd75f 4px solid;
-  border-bottom: #ffd75f 4px solid;
+  border-top: #f2bc18 4px solid;
+  border-bottom: #f2bc18 4px solid;
   overflow: hidden;
+}
+
+.register-buttom {
+  background-color: #207a3e;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.9rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.register-button:hover {
+  background-color: #207a3e;
+  transform: translateY(-2px);
 }
