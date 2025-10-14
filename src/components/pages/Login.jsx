@@ -1,19 +1,40 @@
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
-
-const Login = () => {
+import { login } from "../../helpers/queries";
+import Swal from "sweetalert2";
+const Login = ({ setUsuarioAdmin }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navegacion = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log("Datos enviados:", data);
-    alert(`Bienvenido, ${data.email}! 🐾`);
+  const iniciarSesion = async (usuario) => {
+    const respuesta = await login(usuario);
+    if (respuesta.status === 200) {
+      const datosUsuario = await respuesta.json();
+      setUsuarioAdmin({
+        nombreUsuario: datosUsuario.nombreUsuario,
+        token: datosUsuario.token,
+      });
+      Swal.fire({
+        title: "Inicio de sesion correcto",
+        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
+        icon: "success",
+      });
+
+      navegacion("/administrador");
+    } else {
+      Swal.fire({
+        title: "Error al iniciar sesion",
+        text: `Credenciales incorrectas`,
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -37,7 +58,7 @@ const Login = () => {
           >
             <div className="login-form w-100 px-4 px-md-5">
               <h2 className="login-title text-center">Inicia Sesión</h2>
-              <Form onSubmit={handleSubmit(onSubmit)} noValidate>
+              <Form onSubmit={handleSubmit(iniciarSesion)}>
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="email"
