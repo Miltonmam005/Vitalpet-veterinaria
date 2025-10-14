@@ -49,10 +49,11 @@ const Register = () => {
               </h2>
 
               <Form onSubmit={handleSubmit(onSubmit)}>
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="nombreUsuario">
+                  <Form.Label>Nombre de usuario *</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Nombre de usuario"
+                    placeholder="Ej: Juan Pérez"
                     className={`input-field ${
                       errors.nombreUsuario ? "is-invalid" : ""
                     }`}
@@ -74,10 +75,11 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="email">
+                  <Form.Label>Correo electrónico *</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Email"
+                    placeholder="Ej: ejemplo@correo.com"
                     className={`input-field ${
                       errors.email ? "is-invalid" : ""
                     }`}
@@ -95,18 +97,21 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="password">
+                  <Form.Label>Contraseña *</Form.Label>
                   <Form.Control
                     type="password"
-                    placeholder="Contraseña"
+                    placeholder="Mínimo 8 caracteres, un digito y una mayúscula"
                     className={`input-field ${
                       errors.password ? "is-invalid" : ""
                     }`}
                     {...register("password", {
                       required: "La contraseña es obligatoria",
-                      minLength: {
-                        value: 6,
-                        message: "Debe tener al menos 6 caracteres",
+                      pattern: {
+                        value:
+                          /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
+                        message:
+                          "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.",
                       },
                     })}
                   />
@@ -116,10 +121,11 @@ const Register = () => {
                     </Form.Text>
                   )}
                 </Form.Group>
-                <Form.Group className="mb-3">
+                <Form.Group className="mb-3" controlId="confirmarPassword">
+                  <Form.Label>Confirmar contraseña *</Form.Label>
                   <Form.Control
                     type="password"
-                    placeholder="Confirmar contraseña"
+                    placeholder="Vuelve a escribir tu contraseña"
                     className={`input-field ${
                       errors.confirmarPassword ? "is-invalid" : ""
                     }`}
