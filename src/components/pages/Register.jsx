@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
 import Swal from "sweetalert2";
+import { crearUsuario } from "../../helpers/queries";
 
 const Register = () => {
   const {
@@ -14,14 +15,29 @@ const Register = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Usuario a registrar:", data);
-    Swal.fire({
-      title: "Registro enviado",
-      text: "Mira la consola para ver los datos",
-      icon: "success",
-    });
-    reset();
+  const crearCuenta = async (usuario) => {
+    const respuesta = await crearUsuario(usuario);
+    if (respuesta?.status === 201) {
+      Swal.fire({
+        title: "Usuario creado",
+        text: `El usuario ${usuario.nombreUsuario} fue creado correctamente.`,
+        icon: "success",
+      });
+      reset();
+    } else if (respuesta?.status === 400 || respuesta?.status === 409) {
+      const mensajeError = await respuesta.json();
+      Swal.fire({
+        title: "Error al crear usuario",
+        text: mensajeError.message || "El email ya está registrado.",
+        icon: "error",
+      });
+    } else {
+      Swal.fire({
+        title: "Error del servidor",
+        text: "Ocurrió un problema inesperado. Intenta en unos minutos.",
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -48,7 +64,7 @@ const Register = () => {
                 Crear cuenta
               </h2>
 
-              <Form onSubmit={handleSubmit(onSubmit)}>
+              <Form onSubmit={handleSubmit(crearCuenta)}>
                 <Form.Group className="mb-3" controlId="nombreUsuario">
                   <Form.Label>Nombre de usuario *</Form.Label>
                   <Form.Control
