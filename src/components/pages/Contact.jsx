@@ -74,7 +74,7 @@ const Contact = () => {
                 <Form.Control
                   type="text"
                   placeholder="Ej: Juan Pérez"
-                  {...register("name", {
+                  {...register("nombre", {
                     required: "El nombre es obligatorio",
                     minLength: {
                       value: 2,
@@ -117,7 +117,7 @@ const Contact = () => {
                   as="textarea"
                   rows={4}
                   placeholder="Escribí tu consulta o mensaje aquí..."
-                  {...register("message", {
+                  {...register("mensaje", {
                     required: "El mensaje es obligatorio",
                     minLength: {
                       value: 10,
