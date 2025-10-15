@@ -80,6 +80,10 @@ const Contact = () => {
                       value: 2,
                       message: "El nombre debe tener al menos 2 caracteres",
                     },
+                    maxLength: {
+                      value: 50,
+                      message: "Debe tener menos de 50 caracteres",
+                    },
                   })}
                   isInvalid={errors.name}
                 />
@@ -95,8 +99,10 @@ const Contact = () => {
                   {...register("email", {
                     required: "El correo electrónico es obligatorio",
                     pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Ingresá un correo electrónico válido",
+                      value:
+                        /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+                      message:
+                        "Ingresá un correo electrónico válido, por ej: pedro@gmail.com",
                     },
                   })}
                   isInvalid={errors.email}
@@ -116,6 +122,10 @@ const Contact = () => {
                     minLength: {
                       value: 10,
                       message: "El mensaje debe tener al menos 10 caracteres",
+                    },
+                    maxLength: {
+                      value: 500,
+                      message: "El mensaje puede tener máximo 500 caracteres",
                     },
                   })}
                   isInvalid={errors.message}
