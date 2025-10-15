@@ -2,7 +2,8 @@ import "../Styles/contact.css";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-
+import { enviarMensaje } from "../../helpers/queries";
+import Swal from "sweetalert2";
 const Contact = () => {
   const {
     register,
@@ -11,11 +12,33 @@ const Contact = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("Datos enviados:", data);
-    alert("Mensaje enviado con éxito 🐾");
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      const respuesta = await enviarMensaje(data);
+      if (respuesta && respuesta.ok) {
+        Swal.fire({
+          title: "¡Mensaje enviado!",
+          text: "Tu mensaje se envió correctamente 🐾",
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "No se pudo enviar tu mensaje. Intenta nuevamente.",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo enviar tu mensaje. Intenta nuevamente.",
+        icon: "error",
+      });
+    }
   };
+
   return (
     <div className="contact-page">
       <Container className="contact-container">
@@ -66,6 +89,7 @@ const Contact = () => {
               </ul>
             </div>
           </Col>
+
           <Col md={6} className="contact-form">
             <h4>Enviar un mensaje</h4>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -85,12 +109,13 @@ const Contact = () => {
                       message: "Debe tener menos de 50 caracteres",
                     },
                   })}
-                  isInvalid={errors.name}
+                  isInvalid={errors.nombre}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {errors.name?.message}
+                  {errors.nombre?.message}
                 </Form.Control.Feedback>
               </Form.Group>
+
               <Form.Group controlId="formEmail" className="mb-3">
                 <Form.Label>Correo electrónico</Form.Label>
                 <Form.Control
@@ -111,6 +136,7 @@ const Contact = () => {
                   {errors.email?.message}
                 </Form.Control.Feedback>
               </Form.Group>
+
               <Form.Group controlId="formMessage" className="mb-3">
                 <Form.Label>Mensaje</Form.Label>
                 <Form.Control
@@ -128,10 +154,10 @@ const Contact = () => {
                       message: "El mensaje puede tener máximo 500 caracteres",
                     },
                   })}
-                  isInvalid={errors.message}
+                  isInvalid={errors.mensaje}
                 />
                 <Form.Control.Feedback type="invalid">
-                  {errors.message?.message}
+                  {errors.mensaje?.message}
                 </Form.Control.Feedback>
               </Form.Group>
 
