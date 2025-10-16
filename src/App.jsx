@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import SobreNosotros from './components/pages/sobreNosotros.jsx';
 import Footer from "./components/shared/Footer.jsx"
 import Inicio from './components/Inicio';
+import FormularioPlan from "./components/pages/FormularioPlan.jsx";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Inicio></Inicio>}></Route>
       <Route path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
+      <Route path="/formularioplan" element={<></>}></Route>
       </Routes>
       <Footer/>
       </BrowserRouter>
