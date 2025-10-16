@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import {Link} from "react-router"
 const Inicio =()=>{
   return(
     <>
@@ -214,25 +214,20 @@ const Inicio =()=>{
 
   <div className="container">
     <div className="row">
-      {[
-        { precio: "$20", nombre: "Primeros Pasos", detalle: "Para mascotas de 0 a 1 año", icono: "bi-emoji-smile" },
-        { precio: "$25", nombre: "Madurando", detalle: "Para mascotas de 2 a 5 años", icono: "bi-heart-pulse" },
-        { precio: "$30", nombre: "Adultos", detalle: "Para mascotas de 6 a 9 años", icono: "bi-shield-check" },
-      ].map((plan, i) => (
+      {[ { precio: "$20", nombre: "Primeros Pasos", detalle: "Para mascotas de 0 a 1 año", icono: "bi-emoji-smile" }, { precio: "$25", nombre: "Madurando", detalle: "Para mascotas de 2 a 5 años", icono: "bi-heart-pulse" }, { precio: "$30", nombre: "Adultos", detalle: "Para mascotas de 6 a 9 años", icono: "bi-shield-check" }].map((plan, i) => (
         <div className="col-md-4 mb-4" key={i}>
-          <div
-            className="card border-0 shadow-lg h-100 p-4 rounded-4 position-relative overflow-hidden card-plan cardsgradienteverde"
-           
-          >
+          <div className="card border-0 shadow-lg h-100 p-4 rounded-4 position-relative overflow-hidden card-plan cardsgradienteverde">
             <div className="mb-3">
               <i className={`bi ${plan.icono} display-4`}></i>
             </div>
             <h4 className="fw-bold">{plan.nombre}</h4>
-            <h2 className="text-warning">{plan.precio} <small className="text-light">/mes</small></h2>
+            <h2 className="text-warning">
+              {plan.precio} <small className="text-light">/mes</small>
+            </h2>
             <p className="mt-3">{plan.detalle}</p>
-            <button className="btn btn-light text-success fw-semibold mt-auto rounded-pill px-4 py-2">
-              Elegir plan
-            </button>
+            <Link to={"/formularioplan"} className="btn btn-light text-success fw-semibold mt-auto rounded-pill px-4 py-2">
+                  Elegir plan
+                </Link>
           </div>
         </div>
       ))}

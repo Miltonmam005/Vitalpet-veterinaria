@@ -13,7 +13,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Inicio></Inicio>}></Route>
       <Route path="/sobreNosotros" element={<SobreNosotros></SobreNosotros>}></Route>
-      <Route path="/formularioplan" element={<></>}></Route>
+      <Route path="/formularioplan" element={<FormularioPlan></FormularioPlan>}></Route>
       </Routes>
       <Footer/>
       </BrowserRouter>
