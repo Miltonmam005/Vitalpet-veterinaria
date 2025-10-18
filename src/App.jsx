@@ -31,6 +31,7 @@ function App() {
             path="/login"
             element={<Login setUsuarioAdmin={setUsuarioAdmin}></Login>}
           ></Route>
+
           <Route path="/registro" element={<Register></Register>}></Route>
           <Route path="/contact" element={<Contact></Contact>}></Route>
           <Route path="*" element={<Error404></Error404>}></Route>

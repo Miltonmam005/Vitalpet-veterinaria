@@ -5,12 +5,20 @@ import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
 import Swal from "sweetalert2";
 import { crearUsuario } from "../../helpers/queries";
+import { Link, useNavigate } from "react-router";
+import "../Styles/login.css";
+import icono from "../img/icono-veterinario.png";
+import { login } from "../../helpers/queries";
+import Swal from "sweetalert2";
+const Login = ({ setUsuarioAdmin }) => {
 
 const Register = () => {
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+
     watch,
     reset,
   } = useForm();
@@ -35,6 +43,28 @@ const Register = () => {
       Swal.fire({
         title: "Error del servidor",
         text: "Ocurrió un problema inesperado. Intenta en unos minutos.",
+  } = useForm();
+  const navegacion = useNavigate();
+
+  const iniciarSesion = async (usuario) => {
+    const respuesta = await login(usuario);
+    if (respuesta.status === 200) {
+      const datosUsuario = await respuesta.json();
+      setUsuarioAdmin({
+        nombreUsuario: datosUsuario.nombreUsuario,
+        token: datosUsuario.token,
+      });
+      Swal.fire({
+        title: "Inicio de sesion correcto",
+        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
+        icon: "success",
+      });
+
+      navegacion("/administrador");
+    } else {
+      Swal.fire({
+        title: "Error al iniciar sesion",
+        text: `Credenciales incorrectas`,
         icon: "error",
       });
     }
@@ -43,6 +73,7 @@ const Register = () => {
   return (
     <div className="login-wrapper">
       <Container fluid className="register-container">
+      <Container fluid className="login-container">
         <Row className="g-0">
           <Col
             md={6}
@@ -96,6 +127,12 @@ const Register = () => {
                   <Form.Control
                     type="email"
                     placeholder="Ej: ejemplo@correo.com"
+              <h2 className="login-title text-center">Inicia Sesión</h2>
+              <Form onSubmit={handleSubmit(iniciarSesion)}>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
                     className={`input-field ${
                       errors.email ? "is-invalid" : ""
                     }`}
@@ -105,6 +142,8 @@ const Register = () => {
                         value:
                           /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                         message: "Formato de email inválido",
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Formato inválido",
                       },
                     })}
                   />
@@ -119,6 +158,11 @@ const Register = () => {
                   <Form.Control
                     type="password"
                     placeholder="Mínimo 8 caracteres, un digito y una mayúscula"
+
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
                     className={`input-field ${
                       errors.password ? "is-invalid" : ""
                     }`}
@@ -129,6 +173,9 @@ const Register = () => {
                           /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/,
                         message:
                           "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.",
+                      minLength: {
+                        value: 6,
+                        message: "Debe tener al menos 6 caracteres",
                       },
                     })}
                   />
@@ -167,6 +214,25 @@ const Register = () => {
                 </Button>
                 <div className="login-links d-flex justify-content-center align-items-center gap-1">
                   <span className="text-muted small">¿Ya tienes cuenta?</span>
+                <Button
+                  type="submit"
+                  className="w-100 login-button fw-semibold py-2 mb-3"
+                >
+                  Ingresar
+                </Button>
+                <div className="login-links">
+                  <p className="mb-1 text-muted  text-center"></p>
+                  <Button
+                    variant="link"
+                    className="p-0 m-0 text-success text-decoration-none d-flex  justify-content-center"
+                    as={Link}
+                    to="/error404"
+                  >
+                    ¿Olvidaste tu contraseña?
+                  </Button>
+                </div>
+                <div className="login-links mt-3 d-flex justify-content-center align-items-center gap-1">
+                  <span className="text-muted small">¿No tienes cuenta?</span>
                   <Button
                     variant="link"
                     className="p-0 text-success fw-bold text-decoration-none"
@@ -174,6 +240,9 @@ const Register = () => {
                     to="/login"
                   >
                     Iniciar sesión
+                    to="/registro"
+                  >
+                    Registrarse
                   </Button>
                 </div>
               </Form>

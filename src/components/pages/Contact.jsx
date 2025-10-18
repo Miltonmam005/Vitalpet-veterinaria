@@ -99,10 +99,14 @@ const Contact = () => {
                   {...register("email", {
                     required: "El correo electrónico es obligatorio",
                     pattern: {
+
                       value:
                         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                       message:
                         "Ingresá un correo electrónico válido, por ej: pedro@gmail.com",
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Ingresá un correo electrónico válido",
+
                     },
                   })}
                   isInvalid={errors.email}
@@ -123,6 +127,7 @@ const Contact = () => {
                       value: 10,
                       message: "El mensaje debe tener al menos 10 caracteres",
                     },
+
                     maxLength: {
                       value: 500,
                       message: "El mensaje puede tener máximo 500 caracteres",
