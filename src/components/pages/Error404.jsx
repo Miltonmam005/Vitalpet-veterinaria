@@ -1,8 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
-import "./Error404.css";
-import "../../index.css";
-import { Link } from "react-router-dom";
-import errorImagen from "../../assets/errorgat.404.jpg";
+import errorImage from "../../assets/errorgat.404.jpg";
+import "../../../src/index.css";
+import { Link } from "react-router";
 
 const Error404 = () => {
   return (

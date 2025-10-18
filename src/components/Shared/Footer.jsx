@@ -1,8 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Link } from "react-router-dom";
-import logo from "../../assets/LogoVet.png";
-
+import { Link } from "react-router";
 function Footer() {
   return (
     <footer className="colorFooter text-center text-lg-startp-3">
@@ -19,7 +17,7 @@ function Footer() {
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src={logo}
+              src="/LogoVet.png"
               width="50"
               height="50"
             />
@@ -30,9 +28,12 @@ function Footer() {
             </h5>
             <ul className="list-unstyled ">
               <li className="textocolor">
-                <a href="" className="text-decoration-none text-white ">
-                  Contacto
-                </a>
+                <Link
+                  to={"/contact"}
+                  className="text-decoration-none text-white nav-link"
+                >
+                  Contáctanos
+                </Link>
               </li>
               <li className="textocolor">
                 <Link

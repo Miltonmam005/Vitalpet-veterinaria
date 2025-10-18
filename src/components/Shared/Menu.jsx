@@ -1,8 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import logo from "../../assets/LogoVet.png";
-
+import { NavLink } from "react-router";
 const Menu = () => {
   return (
     <>
@@ -13,18 +12,17 @@ const Menu = () => {
         data-bs-theme="light"
       >
         <Container fluid>
-          {/* logo de la pagina*/}
-          <Nav.Link href="./">
+          <Nav.Link href="./index.html">
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src={logo}
+              src="/LogoVet.png"
               width="50"
               height="50"
             />
           </Nav.Link>
           <Navbar.Brand
-            href="./"
+            href="/index.html"
             className="fuenteLogo color-logo-nav fuentetextos"
           >
             VitalPet
@@ -36,10 +34,10 @@ const Menu = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link className="fuentetextos" href="./">
+              <Nav.Link className="fuentetextos" href="./index.html">
                 Inicio
               </Nav.Link>
-              <Nav.Link className="fuentetextos" href="../pages/Error404.jsx">
+              <Nav.Link as={NavLink} to="/login" className="fuentetextos">
                 Login
               </Nav.Link>
               <Nav.Link className="fuentetextos" href="/">
