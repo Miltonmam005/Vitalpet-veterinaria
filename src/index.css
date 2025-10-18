@@ -70,8 +70,7 @@ main{
 .colorFooter{
   background-color: #002400;
 }
-<<<<<<< HEAD
-{/*inicio*/}
+/*inicio*/
 .hero {
   min-height: 400px; /* altura mínima */
   display: flex;
@@ -151,7 +150,6 @@ background-color: #30572aff;
         transform: translateY(-10px);
         box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       }
-=======
 
 /* Error 404  todos los estilos*/
 .error-image {
@@ -159,4 +157,3 @@ background-color: #30572aff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 50%;
 } 
->>>>>>> 66c275b50fd64cc9a1b1f81f488c8b079656458c
