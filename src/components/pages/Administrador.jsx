@@ -1,28 +1,29 @@
-import { Button, Table } from 'react-bootstrap';
-import ItemPelicula from './componentesAdministrador/ItemProductos.jsx';
-import { Link } from 'react-router';
-import {cardsData} from '../../data/cardPrueba'
+import { Button, Table } from "react-bootstrap";
+import ItemProductos from "./componentesAdministrador/ItemProductos.jsx";
+import { Link } from "react-router";
+import { cardsData } from "../../data/cardPrueba";
 
-
-const Administrador = ({ Productos, setProductos, borrarProducto, editarProducto }) => {
-
+const Administrador = ({
+  Productos,
+  setProductos,
+  borrarProducto,
+  editarProducto,
+}) => {
   const cargarDatosPrueba = () => {
-    setPeliculas(cardsData)
-  }
+    setProductos(cardsData);
+  };
 
-    return (
-        <section className='container'>
-           <div className="row justify-content-between align-items-center mt-5">
+  return (
+    <section className="container">
+      <div className="row justify-content-between align-items-center mt-5">
         <h1 className="display-4 tinos">Catálogo de Productos</h1>
-        <div className='d-flex gap-2 my-2'>
+        <div className="d-flex gap-2 my-2">
           <Link to={"/administrador/crear"} className="btn btn-success">
             Agregar Producto
             <i className="bi bi-file-earmark-plus ms-2"></i>
           </Link>
           <Button className="btn btn-info ms-2" onClick={cargarDatosPrueba}>
-            <i
-              className="bi bi-database-fill-add"
-            ></i>
+            <i className="bi bi-database-fill-add"></i>
           </Button>
         </div>
       </div>
@@ -39,11 +40,19 @@ const Administrador = ({ Productos, setProductos, borrarProducto, editarProducto
           </tr>
         </thead>
         <tbody>
-            {producto.map((producto, indice)=><ItemProducto key={producto.id} fila={indice+1} producto={producto} destacarProducto={destacarProducto} borrarProducto={borrarProducto}></ItemProducto>)}
+          {producto.map((producto, indice) => (
+            <ItemProductos
+              key={producto.id}
+              fila={indice + 1}
+              producto={producto}
+              destacarProducto={destacarProducto}
+              borrarProducto={borrarProducto}
+            ></ItemProductos>
+          ))}
         </tbody>
       </Table>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Administrador;

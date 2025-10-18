@@ -1,51 +1,68 @@
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import logo from "../../assets/LogoVet.png";
 
-
 const Menu = () => {
-    return ( <>
-    <Navbar expand="lg" className="bg-body-tertiary colorNav" bg="light" data-bs-theme="light">
-      <Container fluid >
-        {/* logo de la pagina*/}
-            <Nav.Link href="./">
-              <img
-                className="d-inline-block m-lg-1 align-top stiloLogoNav"
-                alt="logo Veterinaria"
-                src={logo}
-                width="50"
-                height="50"
-              />
-            </Nav.Link>
-        <Navbar.Brand href="./" className="fuenteLogo color-logo-nav fuentetextos">VitalPet</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="ms-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
+  return (
+    <>
+      <Navbar
+        expand="lg"
+        className="bg-body-tertiary colorNav"
+        bg="light"
+        data-bs-theme="light"
+      >
+        <Container fluid>
+          {/* logo de la pagina*/}
+          <Nav.Link href="./">
+            <img
+              className="d-inline-block m-lg-1 align-top stiloLogoNav"
+              alt="logo Veterinaria"
+              src={logo}
+              width="50"
+              height="50"
+            />
+          </Nav.Link>
+          <Navbar.Brand
+            href="./"
+            className="fuenteLogo color-logo-nav fuentetextos"
           >
-            <Nav.Link className='fuentetextos' href="./">Inicio</Nav.Link>
-            <Nav.Link className='fuentetextos' href="../pages/Error404.jsx">Login</Nav.Link>
-            <Nav.Link className='fuentetextos' href="/">Solicitar Turno</Nav.Link>
-            {/* logo del carrito */}
-             <Nav.Link href="#"> {/* carrito */}
-              <img
-                src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png"
-                width="30"
-                height="30"
-                className="d-inline-block align-top logoCarrito"
-                alt="Logo de carrito"
-              />
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+            VitalPet
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="ms-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <Nav.Link className="fuentetextos" href="./">
+                Inicio
+              </Nav.Link>
+              <Nav.Link className="fuentetextos" href="../pages/Error404.jsx">
+                Login
+              </Nav.Link>
+              <Nav.Link className="fuentetextos" href="/">
+                Solicitar Turno
+              </Nav.Link>
+              {/* logo del carrito */}
+              <Nav.Link href="#">
+                {" "}
+                {/* carrito */}
+                <img
+                  src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png"
+                  width="30"
+                  height="30"
+                  className="d-inline-block align-top logoCarrito"
+                  alt="Logo de carrito"
+                />
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
-    </>    
-    );
+    </>
+  );
 };
 
 export default Menu;
