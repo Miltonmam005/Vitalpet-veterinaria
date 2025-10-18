@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
 import Swal from "sweetalert2";
-import { crearUsuario } from "../../helpers/queries";
+import { crearUsuario } from "../helpers/queries"; 
 
 const Register = () => {
   const navigate = useNavigate();
@@ -17,23 +17,26 @@ const Register = () => {
   } = useForm();
 
   const crearCuenta = async (usuario) => {
-    const respuesta = await crearUsuario(usuario);
-    if (respuesta?.status === 201) {
-      Swal.fire({
-        title: "Usuario creado",
-        text: `El usuario ${usuario.nombreUsuario} fue creado correctamente.`,
-        icon: "success",
-      });
-      navigate("/login");
-      reset();
-    } else if (respuesta?.status === 400 || respuesta?.status === 409) {
-      const mensajeError = await respuesta.json();
-      Swal.fire({
-        title: "Error al crear usuario",
-        text: mensajeError.message || "El email ya está en uso.",
-        icon: "error",
-      });
-    } else {
+    try {
+      const respuesta = await crearUsuario(usuario);
+      if (respuesta?.status === 201) {
+        Swal.fire({
+          title: "Usuario creado",
+          text: `El usuario ${usuario.nombreUsuario} fue creado correctamente.`,
+          icon: "success",
+        });
+        navigate("/login");
+        reset();
+      } else {
+        const mensajeError = await respuesta.json();
+        Swal.fire({
+          title: "Error al crear usuario",
+          text: mensajeError.message || "El email ya está en uso.",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
       Swal.fire({
         title: "Error del servidor",
         text: "Ocurrió un problema inesperado. Intenta en unos minutos.",

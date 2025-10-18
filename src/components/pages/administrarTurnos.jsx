@@ -12,7 +12,7 @@ const AdministrarTurnos = () => {
     <>
       <section className="container">
         <div className="d-flex justify-content-between align-items-center mt-5">
-          <h1 className=" display-4">Turnos</h1>
+          <h1 className="display-4">Turnos</h1>
           <div>
             <Button variant="primary" onClick={handleShow}>
               <i className="bi bi-file-earmark-arrow-up"></i>
@@ -20,13 +20,13 @@ const AdministrarTurnos = () => {
           </div>
         </div>
         <div className="my-4 table-responsive">
-          <table className=" table table-striped table-bordered table-hover">
+          <table className="table table-striped table-bordered table-hover">
             <thead>
               <tr className="text-center">
                 <th>Detalle de cita</th>
                 <th>Veterinario</th>
                 <th>Mascota</th>
-                <th>Sintomas</th>
+                <th>Síntomas</th>
                 <th>Fecha</th>
                 <th>Hora</th>
                 <th>Opciones</th>
@@ -43,10 +43,10 @@ const AdministrarTurnos = () => {
                 <td>
                   <div className="d-flex justify-content-center gap-1">
                     <button className="btn btn-warning">
-                      <i class="bi bi-pencil-square"></i>
+                      <i className="bi bi-pencil-square"></i> 
                     </button>
                     <button className="btn btn-danger">
-                      <i class="bi bi-trash"></i>
+                      <i className="bi bi-trash"></i> 
                     </button>
                   </div>
                 </td>
@@ -57,7 +57,7 @@ const AdministrarTurnos = () => {
       </section>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Turnos</Modal.Title>
+          <Modal.Title>Agregar Turno</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -89,7 +89,7 @@ const AdministrarTurnos = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formSintomas">
-              <Form.Label>Sintomas</Form.Label>
+              <Form.Label>Síntomas</Form.Label> 
               <Form.Control
                 type="text"
                 placeholder="diarrea"
@@ -101,18 +101,14 @@ const AdministrarTurnos = () => {
               <Form.Label>Fecha</Form.Label>
               <Form.Control
                 type="date"
-                placeholder="15/10/25"
                 required
-                maxLength={100}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formHora">
-              <Form.Label>Especie</Form.Label>
+              <Form.Label>Hora</Form.Label> 
               <Form.Control
-                type="tel"
-                placeholder="16:00"
+                type="time" 
                 required
-                maxLength={150}
               />
             </Form.Group>
           </Form>

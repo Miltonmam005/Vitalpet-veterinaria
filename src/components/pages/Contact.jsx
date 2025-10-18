@@ -2,7 +2,7 @@ import "../Styles/contact.css";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import { enviarMensaje } from "../../helpers/queries";
+import { enviarMensaje } from "../helpers/queries"; 
 import Swal from "sweetalert2";
 
 const Contact = () => {
@@ -90,7 +90,6 @@ const Contact = () => {
               </ul>
             </div>
           </Col>
-
 
           <Col md={6} className="contact-form">
             <h4>Enviar un mensaje</h4>
@@ -180,7 +179,7 @@ const Contact = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Mapa rollingCode"
+                title="Mapa RollingCode School"
               ></iframe>
             </div>
           </Col>
