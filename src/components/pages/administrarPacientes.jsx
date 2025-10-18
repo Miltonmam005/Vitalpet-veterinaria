@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
-const AdmistrarPacientes = () => {
+const AdministrarPacientes = () => { 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -12,7 +12,7 @@ const AdmistrarPacientes = () => {
     <>
       <section className="container">
         <div className="d-flex justify-content-between align-items-center mt-5">
-          <h1 className=" display-4">Pacientes</h1>
+          <h1 className="display-4">Pacientes</h1>
           <div>
             <Button variant="primary" onClick={handleShow}>
               <i className="bi bi-file-earmark-arrow-up"></i>
@@ -20,7 +20,7 @@ const AdmistrarPacientes = () => {
           </div>
         </div>
         <div className="my-4 table-responsive">
-          <table className=" table table-striped table-bordered table-hover">
+          <table className="table table-striped table-bordered table-hover">
             <thead>
               <tr className="text-center">
                 <th>Nombre y Apellido</th>
@@ -45,10 +45,10 @@ const AdmistrarPacientes = () => {
                 <td>
                   <div className="d-flex justify-content-center gap-1">
                     <button className="btn btn-warning">
-                      <i class="bi bi-pencil-square"></i>
+                      <i className="bi bi-pencil-square"></i> 
                     </button>
                     <button className="btn btn-danger">
-                      <i class="bi bi-trash"></i>
+                      <i className="bi bi-trash"></i> 
                     </button>
                   </div>
                 </td>
@@ -59,12 +59,12 @@ const AdmistrarPacientes = () => {
       </section>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Pacientes</Modal.Title>
+          <Modal.Title>Agregar Paciente</Modal.Title> 
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="formNombreDueño">
-              <Form.Label>Nombre y Apellido</Form.Label>
+              <Form.Label>Nombre y Apellido *</Form.Label> 
               <Form.Control
                 type="text"
                 placeholder="Jose Quipildor"
@@ -73,7 +73,7 @@ const AdmistrarPacientes = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEmail">
-              <Form.Label>Email</Form.Label>
+              <Form.Label>Email *</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="josequipildor90@hotmail.com"
@@ -82,16 +82,16 @@ const AdmistrarPacientes = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formTelefono">
-              <Form.Label>Telefono</Form.Label>
+              <Form.Label>Teléfono *</Form.Label> 
               <Form.Control
-                type="number"
-                placeholder="+14509901177"
+                type="tel"
+                placeholder="+54 381 123-4567"
                 required
-                maxLength={50}
+                maxLength={20}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formDireccion">
-              <Form.Label>Direccion</Form.Label>
+              <Form.Label>Dirección *</Form.Label> 
               <Form.Control
                 type="text"
                 placeholder="Av. Alem 2000"
@@ -100,7 +100,7 @@ const AdmistrarPacientes = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formNombreMascota">
-              <Form.Label>Nombre de la Mascota</Form.Label>
+              <Form.Label>Nombre de la Mascota *</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Rocky"
@@ -109,16 +109,19 @@ const AdmistrarPacientes = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formEspecie">
-              <Form.Label>Especie</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Perro"
-                required
-                maxLength={50}
-              />
+              <Form.Label>Especie *</Form.Label>
+              <Form.Select required> 
+                <option value="">Seleccionar especie</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+                <option value="ave">Ave</option>
+                <option value="roedor">Roedor</option>
+                <option value="reptil">Reptil</option>
+                <option value="otro">Otro</option>
+              </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formRaza">
-              <Form.Label>Raza</Form.Label>
+              <Form.Label>Raza *</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Saluki"
@@ -141,4 +144,4 @@ const AdmistrarPacientes = () => {
   );
 };
 
-export default AdmistrarPacientes;
+export default AdministrarPacientes; 
