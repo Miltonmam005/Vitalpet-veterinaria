@@ -44,7 +44,10 @@ function Footer() {
                 </Link>
               </li>
               <li className="textocolor">
-                <a href="" className="text-decoration-none text-white">
+                <a
+                  href="../pages/Error404.jsx"
+                  className="text-decoration-none text-white"
+                >
                   Subscripciones
                 </a>
               </li>
