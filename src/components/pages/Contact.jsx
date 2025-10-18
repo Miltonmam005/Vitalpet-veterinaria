@@ -2,6 +2,8 @@ import "../Styles/contact.css";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { enviarMensaje } from "../../helpers/queries";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const {
@@ -10,6 +12,33 @@ const Contact = () => {
     formState: { errors },
     reset,
   } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      const respuesta = await enviarMensaje(data);
+      if (respuesta && respuesta.ok) {
+        Swal.fire({
+          title: "¡Mensaje enviado!",
+          text: "Tu mensaje se envió correctamente 🐾",
+          icon: "success",
+        });
+        reset();
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "No se pudo enviar tu mensaje. Intenta nuevamente.",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        title: "Error",
+        text: "No se pudo enviar tu mensaje. Intenta nuevamente.",
+        icon: "error",
+      });
+    }
+  };
 
   const onSubmit = (data) => {
     console.log("Datos enviados:", data);
@@ -66,6 +95,8 @@ const Contact = () => {
               </ul>
             </div>
           </Col>
+
+
           <Col md={6} className="contact-form">
             <h4>Enviar un mensaje</h4>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -74,6 +105,7 @@ const Contact = () => {
                 <Form.Control
                   type="text"
                   placeholder="Ej: Juan Pérez"
+                  {...register("nombre", {
                   {...register("name", {
                     required: "El nombre es obligatorio",
                     minLength: {
@@ -85,6 +117,13 @@ const Contact = () => {
                       message: "Debe tener menos de 50 caracteres",
                     },
                   })}
+                  isInvalid={errors.nombre}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.nombre?.message}
+                </Form.Control.Feedback>
+              </Form.Group>
+
                   isInvalid={errors.name}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -99,7 +138,6 @@ const Contact = () => {
                   {...register("email", {
                     required: "El correo electrónico es obligatorio",
                     pattern: {
-
                       value:
                         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                       message:
@@ -115,24 +153,29 @@ const Contact = () => {
                   {errors.email?.message}
                 </Form.Control.Feedback>
               </Form.Group>
+
               <Form.Group controlId="formMessage" className="mb-3">
                 <Form.Label>Mensaje</Form.Label>
                 <Form.Control
                   as="textarea"
                   rows={4}
                   placeholder="Escribí tu consulta o mensaje aquí..."
+                  {...register("mensaje", {
                   {...register("message", {
                     required: "El mensaje es obligatorio",
                     minLength: {
                       value: 10,
                       message: "El mensaje debe tener al menos 10 caracteres",
                     },
-
                     maxLength: {
                       value: 500,
                       message: "El mensaje puede tener máximo 500 caracteres",
                     },
                   })}
+                  isInvalid={errors.mensaje}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.mensaje?.message}
                   isInvalid={errors.message}
                 />
                 <Form.Control.Feedback type="invalid">

@@ -59,7 +59,6 @@ const Login = ({ setUsuarioAdmin }) => {
             <div className="login-form w-100 px-4 px-md-5">
               <h2 className="login-title text-center">Inicia Sesión</h2>
               <Form onSubmit={handleSubmit(iniciarSesion)}>
-
                 <Form.Group className="mb-3">
                   <Form.Control
                     type="email"

@@ -5,6 +5,8 @@ import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
 import Swal from "sweetalert2";
 import { crearUsuario } from "../../helpers/queries";
+
+const Register = () => {
 import { Link, useNavigate } from "react-router";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
@@ -18,7 +20,6 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-
     watch,
     reset,
   } = useForm();
