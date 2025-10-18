@@ -5,6 +5,7 @@ import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
 import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
+
 const Login = ({ setUsuarioAdmin }) => {
   const {
     register,
@@ -38,8 +39,8 @@ const Login = ({ setUsuarioAdmin }) => {
   };
 
   return (
-    <div className="login-wrapper">
       <Container fluid className="login-container">
+        <div className="login-wrapper">
         <Row className="g-0">
           <Col
             md={6}
@@ -59,10 +60,6 @@ const Login = ({ setUsuarioAdmin }) => {
             <div className="login-form w-100 px-4 px-md-5">
               <h2 className="login-title text-center">Inicia Sesión</h2>
               <Form onSubmit={handleSubmit(iniciarSesion)}>
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="email"
-                    placeholder="Email"
                 <Form.Group className="mb-3" controlId="email">
                   <Form.Label>Correo electrónico *</Form.Label>
                   <Form.Control
@@ -88,10 +85,6 @@ const Login = ({ setUsuarioAdmin }) => {
                   )}
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
                 <Form.Group className="mb-3" controlId="password">
                   <Form.Label>Contraseña *</Form.Label>
                   <Form.Control
@@ -148,8 +141,8 @@ const Login = ({ setUsuarioAdmin }) => {
             </div>
           </Col>
         </Row>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 
