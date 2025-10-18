@@ -1,13 +1,14 @@
 import { Button, Table } from "react-bootstrap";
 import ItemProductos from "./componentesAdministrador/ItemProductos.jsx";
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; 
 import { cardsData } from "../../data/cardPrueba";
 
 const Administrador = ({
-  Productos,
+  productos, 
   setProductos,
   borrarProducto,
   editarProducto,
+  destacarProducto 
 }) => {
   const cargarDatosPrueba = () => {
     setProductos(cardsData);
@@ -34,21 +35,30 @@ const Administrador = ({
             <th>ID</th>
             <th>Nombre</th>
             <th>Tipo</th>
-            <th>Año de estreno</th>
-            <th>Género</th>
+            <th>Precio</th> 
+            <th>Categoría</th> 
             <th>Opciones</th>
           </tr>
         </thead>
         <tbody>
-          {producto.map((producto, indice) => (
-            <ItemProductos
-              key={producto.id}
-              fila={indice + 1}
-              producto={producto}
-              destacarProducto={destacarProducto}
-              borrarProducto={borrarProducto}
-            ></ItemProductos>
-          ))}
+          {productos && productos.length > 0 ? ( 
+            productos.map((producto, indice) => (
+              <ItemProductos
+                key={producto.id}
+                fila={indice + 1}
+                producto={producto}
+                destacarProducto={destacarProducto}
+                borrarProducto={borrarProducto}
+                editarProducto={editarProducto} 
+              />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6" className="text-center text-muted py-4">
+                No hay productos disponibles
+              </td>
+            </tr>
+          )}
         </tbody>
       </Table>
     </section>

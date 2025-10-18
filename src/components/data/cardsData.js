@@ -132,18 +132,17 @@ export const cardsData = [
     type: "Producto",
     destacada: true,
   },
-  {
+ {
     id: 12,
     title: "Juguete interactivo para gato",
     image: "https://i.ebayimg.com/images/g/ne8AAOSwSvJoLegf/s-l1600.webp",
-    description_breve:
-      "Juguete con túneles y pelotas para estimulación mental.",
-    description_amplia:
-      "Mantén a tu gato activo y entretenido con este circuito que incluye una bola que ruedan. Estimula su instinto de caza y ayuda a prevenir el aburrimiento.",
+    description_breve: "Juguete con túneles y pelotas para estimulación mental.",
+    description_amplia: "Mantén a tu gato activo y entretenido con este circuito que incluye túneles y bolas que ruedan. Estimula su instinto de caza y ayuda a prevenir el aburrimiento.",
     alt: "Base circular de felpa con túneles y una pelota en el interior",
     type: "Producto",
     destacada: false,
-  },
+},
+  
   {
     id: 13,
     title: "Chaleco salvavidas para perro",
@@ -167,17 +166,14 @@ export const cardsData = [
     type: "Producto",
     destacada: false,
   },
-  {
+ {
     id: 15,
     title: "Collares para cachorros",
-    image:
-      "https://http2.mlstatic.com/D_NQ_NP_2X_758861-MLA92716290699_092025-F.webp",
-    description_breve:
-      "Collares para cachorros de Cole Litter y de varios tamaños.",
-    description_amplia:
-      "EMarca Auidy_6TXD Modelo EWXRPRBC7848 Color 14 colores diferentes Nombre del diseño Cuadros.",
-    alt: "Diferentes collares para cachorros de diferentes colores",
+    image: "https://http2.mlstatic.com/D_NQ_NP_2X_758861-MLA92716290699_092025-F.webp",
+    description_breve: "Collares ajustables para cachorros de todos los tamaños.",
+    description_amplia: "Set de collares coloridos y ajustables, perfectos para cachorros en crecimiento. Fabricados con materiales suaves y seguros, incluyen hebilla de liberación rápida para mayor seguridad de tu mascota.",
+    alt: "Diferentes collares para cachorros de colores variados",
     type: "Producto",
     destacada: true,
-  },
+}
 ];
