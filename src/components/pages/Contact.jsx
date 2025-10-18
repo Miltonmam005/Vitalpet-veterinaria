@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { enviarMensaje } from "../../helpers/queries";
 import Swal from "sweetalert2";
+
 const Contact = () => {
   const {
     register,
@@ -39,6 +40,11 @@ const Contact = () => {
     }
   };
 
+  const onSubmit = (data) => {
+    console.log("Datos enviados:", data);
+    alert("Mensaje enviado con éxito 🐾");
+    reset();
+  };
   return (
     <div className="contact-page">
       <Container className="contact-container">
@@ -90,6 +96,7 @@ const Contact = () => {
             </div>
           </Col>
 
+
           <Col md={6} className="contact-form">
             <h4>Enviar un mensaje</h4>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -99,6 +106,7 @@ const Contact = () => {
                   type="text"
                   placeholder="Ej: Juan Pérez"
                   {...register("nombre", {
+                  {...register("name", {
                     required: "El nombre es obligatorio",
                     minLength: {
                       value: 2,
@@ -116,6 +124,12 @@ const Contact = () => {
                 </Form.Control.Feedback>
               </Form.Group>
 
+                  isInvalid={errors.name}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.name?.message}
+                </Form.Control.Feedback>
+              </Form.Group>
               <Form.Group controlId="formEmail" className="mb-3">
                 <Form.Label>Correo electrónico</Form.Label>
                 <Form.Control
@@ -128,6 +142,9 @@ const Contact = () => {
                         /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                       message:
                         "Ingresá un correo electrónico válido, por ej: pedro@gmail.com",
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Ingresá un correo electrónico válido",
+
                     },
                   })}
                   isInvalid={errors.email}
@@ -144,6 +161,7 @@ const Contact = () => {
                   rows={4}
                   placeholder="Escribí tu consulta o mensaje aquí..."
                   {...register("mensaje", {
+                  {...register("message", {
                     required: "El mensaje es obligatorio",
                     minLength: {
                       value: 10,
@@ -158,6 +176,10 @@ const Contact = () => {
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.mensaje?.message}
+                  isInvalid={errors.message}
+                />
+                <Form.Control.Feedback type="invalid">
+                  {errors.message?.message}
                 </Form.Control.Feedback>
               </Form.Group>
 

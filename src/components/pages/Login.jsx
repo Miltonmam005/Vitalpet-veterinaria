@@ -63,6 +63,11 @@ const Login = ({ setUsuarioAdmin }) => {
                   <Form.Control
                     type="email"
                     placeholder="Email"
+                <Form.Group className="mb-3" controlId="email">
+                  <Form.Label>Correo electrónico *</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Ej: mail@gmail.com"
                     className={`input-field ${
                       errors.email ? "is-invalid" : ""
                     }`}
@@ -87,6 +92,11 @@ const Login = ({ setUsuarioAdmin }) => {
                   <Form.Control
                     type="password"
                     placeholder="Password"
+                <Form.Group className="mb-3" controlId="password">
+                  <Form.Label>Contraseña *</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="ej: Pass1234*"
                     className={`input-field ${
                       errors.password ? "is-invalid" : ""
                     }`}
