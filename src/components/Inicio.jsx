@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Links } from "react-router";
+import { Link } from "react-router-dom"; 
 
 const Inicio = () => {
   return (
@@ -207,9 +207,9 @@ const Inicio = () => {
                 </div>
               </div>
               <div className="d-flex justify-content-center">
-                <Links to="./DetalleProductos" variant="success">
-                  Ver Productos
-                </Links>
+                <Link to="/DetalleProductos" className="btn btn-success">
+                  Ver mas Productos
+                </Link>
               </div>
             </div>
           </div>
