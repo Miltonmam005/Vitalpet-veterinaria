@@ -3,7 +3,8 @@ import milton from "../img/milton.jpeg";
 import benja from "../img/benja.jpeg";
 import celina from "../img/celina.jpeg";
 import santiago from "../img/santiago.jpeg";
-const sobreNosotros = () => {
+
+const SobreNosotros = () => {
   return (
     <>
       <h1 className="text-center mt-3">Acerca de nosotros</h1>
@@ -63,7 +64,7 @@ const sobreNosotros = () => {
           </div>
         </div>
 
-        {/*integrantes */}
+        {/* Integrantes */}
         <div className="row text-center d-flex justify-content-center mt-5">
           <h3 className="mb-4">Nuestros integrantes</h3>
           <div className="col-md-4 mb-3">
@@ -72,6 +73,7 @@ const sobreNosotros = () => {
                 <Image
                   src={benja}
                   className="w-100 mb-2 img-circular-sobreNosotros"
+                  alt="Jose Benjamin Quiros"
                 />
                 <h2>Jose Benjamin Quiros</h2>
                 <p className="card-text">
@@ -92,8 +94,9 @@ const sobreNosotros = () => {
                 <Image
                   src={milton}
                   className="w-100 mb-2 img-circular-sobreNosotros"
+                  alt="Milton Ramón Mamani"
                 />
-                <h2>Milton Ramón Mamani </h2>
+                <h2>Milton Ramón Mamani</h2>
                 <p className="card-text">
                   1. Navbar y Footer: Diseño y desarrollo del navbar y footer
                   que se utilizarán en toda la página web.
@@ -110,6 +113,7 @@ const sobreNosotros = () => {
                 <Image
                   src={santiago}
                   className="w-100 mb-2 img-circular-sobreNosotros"
+                  alt="Santiago Uriel Gonzalez"
                 />
                 <h2>Santiago Uriel Gonzalez</h2>
                 <p className="card-text">
@@ -129,6 +133,7 @@ const sobreNosotros = () => {
                 <Image
                   src={celina}
                   className="w-100 mb-2 img-circular-sobreNosotros"
+                  alt="Celina Gabriela Acosta"
                 />
                 <h2>Celina Gabriela Acosta</h2>
                 <p className="card-text">
@@ -148,6 +153,7 @@ const sobreNosotros = () => {
                 <Image
                   src="https://w7.pngwing.com/pngs/753/432/png-transparent-user-profile-2018-in-sight-user-conference-expo-business-default-business-angle-service-people-thumbnail.png"
                   className="w-100 mb-2 img-circular-sobreNosotros"
+                  alt="Tobias Conde"
                 />
                 <h2>Tobias Conde</h2>
                 <p className="card-text">
@@ -167,4 +173,5 @@ const sobreNosotros = () => {
     </>
   );
 };
-export default sobreNosotros;
+
+export default SobreNosotros;
