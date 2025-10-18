@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "./Error404.css";
 import "../../index.css";
-import { Link } from "react-router";
-import errorImagen from "../../assets/Error404Gat.jpg";
+import { Link } from "react-router-dom";
+import errorImagen from "../../assets/errorgat.404.jpg";
 
 const Error404 = () => {
   return (
@@ -20,7 +20,7 @@ const Error404 = () => {
               La pagina a la que intentaste acceder no existe o ha sido
               eliminada
             </p>
-            <Link to="/" className=" btn btn-outline-primary">
+            <Link to="/" className="btn btn-outline-success">
               Volver al Inicio
             </Link>
           </Col>

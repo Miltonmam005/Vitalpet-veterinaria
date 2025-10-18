@@ -2,16 +2,19 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import logo from "../../assets/LogoVet.png";
+
 
 const Menu = () => {
     return ( <>
     <Navbar expand="lg" className="bg-body-tertiary colorNav" bg="light" data-bs-theme="light">
       <Container fluid >
-            <Nav.Link href="./index.html">
+        {/* logo de la pagina*/}
+            <Nav.Link href="./">
               <img
                 className="d-inline-block m-lg-1 align-top stiloLogoNav"
                 alt="logo Veterinaria"
-                src="/LogoVet.png"
+                src={logo}
                 width="50"
                 height="50"
               />
@@ -25,7 +28,7 @@ const Menu = () => {
             navbarScroll
           >
             <Nav.Link className='fuentetextos' href="./">Inicio</Nav.Link>
-            <Nav.Link className='fuentetextos' href="./src/components/pages/Error404.jsx">Login</Nav.Link>
+            <Nav.Link className='fuentetextos' href="../pages/Error404.jsx">Login</Nav.Link>
             <Nav.Link className='fuentetextos' href="/">Solicitar Turno</Nav.Link>
             {/* logo del carrito */}
              <Nav.Link href="#"> {/* carrito */}

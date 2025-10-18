@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from './components/shared/Menu.jsx'
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SobreNosotros from './components/pages/sobreNosotros.jsx';
 import Footer from "./components/Shared/Footer.jsx"
 import Error404 from './components/pages/Error404.jsx';
