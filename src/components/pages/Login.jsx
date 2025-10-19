@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom"; 
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
-import { login } from "../../helpers/queries";
+import { login } from "../../helpers/queries"; 
 import Swal from "sweetalert2";
+
 const Login = ({ setUsuarioAdmin }) => {
   const {
     register,
@@ -14,32 +15,50 @@ const Login = ({ setUsuarioAdmin }) => {
   const navegacion = useNavigate();
 
   const iniciarSesion = async (usuario) => {
-    const respuesta = await login(usuario);
-    if (respuesta.status === 200) {
-      const datosUsuario = await respuesta.json();
-      setUsuarioAdmin({
-        nombreUsuario: datosUsuario.nombreUsuario,
-        token: datosUsuario.token,
-      });
-      Swal.fire({
-        title: "Inicio de sesion correcto",
-        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
-        icon: "success",
-      });
+    try {
+      const respuesta = await login(usuario);
+      
+      if (!respuesta) {
+        Swal.fire({
+          title: "Error de conexión",
+          text: "No se pudo conectar al servidor",
+          icon: "error",
+        });
+        return;
+      }
 
-      navegacion("/administrador");
-    } else {
+      if (respuesta.status === 200) {
+        const datosUsuario = await respuesta.json();
+        setUsuarioAdmin({
+          nombreUsuario: datosUsuario.nombreUsuario,
+          token: datosUsuario.token,
+        });
+        Swal.fire({
+          title: "Inicio de sesión correcto",
+          text: `Bienvenido ${datosUsuario.nombreUsuario}`,
+          icon: "success",
+        });
+        navegacion("/administrador");
+      } else {
+        Swal.fire({
+          title: "Error al iniciar sesión",
+          text: "Credenciales incorrectas",
+          icon: "error",
+        });
+      }
+    } catch (error) {
+      console.error("Error en login:", error);
       Swal.fire({
-        title: "Error al iniciar sesion",
-        text: `Credenciales incorrectas`,
+        title: "Error",
+        text: "Ocurrió un error inesperado",
         icon: "error",
       });
     }
   };
 
   return (
-    <div className="login-wrapper">
-      <Container fluid className="login-container">
+    <Container fluid className="login-container">
+      <div className="login-wrapper">
         <Row className="g-0">
           <Col
             md={6}
@@ -59,10 +78,6 @@ const Login = ({ setUsuarioAdmin }) => {
             <div className="login-form w-100 px-4 px-md-5">
               <h2 className="login-title text-center">Inicia Sesión</h2>
               <Form onSubmit={handleSubmit(iniciarSesion)}>
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="email"
-                    placeholder="Email"
                 <Form.Group className="mb-3" controlId="email">
                   <Form.Label>Correo electrónico *</Form.Label>
                   <Form.Control
@@ -77,7 +92,7 @@ const Login = ({ setUsuarioAdmin }) => {
                         value:
                           /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                         message:
-                          "El email debe tener un formato valido, por ej: pedro@gmail.com",
+                          "El email debe tener un formato válido, por ej: pedro@gmail.com",
                       },
                     })}
                   />
@@ -88,10 +103,6 @@ const Login = ({ setUsuarioAdmin }) => {
                   )}
                 </Form.Group>
 
-                <Form.Group className="mb-3">
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
                 <Form.Group className="mb-3" controlId="password">
                   <Form.Label>Contraseña *</Form.Label>
                   <Form.Control
@@ -139,7 +150,7 @@ const Login = ({ setUsuarioAdmin }) => {
                     variant="link"
                     className="p-0 text-success fw-bold text-decoration-none"
                     as={Link}
-                    to="/registro"
+                    to="/registro" 
                   >
                     Registrarse
                   </Button>
@@ -148,8 +159,8 @@ const Login = ({ setUsuarioAdmin }) => {
             </div>
           </Col>
         </Row>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 

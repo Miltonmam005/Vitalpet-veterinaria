@@ -1,7 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { Links } from "react-router";
+import { Link } from "react-router-dom"; 
+
 
 const Inicio = () => {
   return (
@@ -16,10 +17,12 @@ const Inicio = () => {
             <p className="text-light">
               "Cuidamos a tus mascotas como parte de nuestra familia"
             </p>
-            <button className="btn btn-success me-2">
+            <Link to="/contact" className="btn btn-success me-2">
               Conocer nuestros planes
-            </button>
-            <button className="btn btn-warning">Agenda tu turno</button>
+            </Link>
+            <Link to="/contact" className="btn btn-warning"> 
+              Agenda tu turno
+            </Link>
           </div>
           <div className="col-12 col-lg-6 text-center">
             <img
@@ -207,9 +210,9 @@ const Inicio = () => {
                 </div>
               </div>
               <div className="d-flex justify-content-center">
-                <Links to="./DetalleProductos" variant="success">
-                  Ver Productos
-                </Links>
+                <Link to="/administrador" className="btn btn-success"> 
+                  Ver más Productos
+                </Link>
               </div>
             </div>
           </div>
