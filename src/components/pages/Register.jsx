@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
 import Swal from "sweetalert2";
-import { crearUsuario } from "../helpers/queries"; 
+import { crearUsuario } from "../../helpers/queries"; 
 
 const Register = () => {
   const navigate = useNavigate();

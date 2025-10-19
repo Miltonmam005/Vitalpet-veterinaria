@@ -1,14 +1,13 @@
 import { Button, Table } from "react-bootstrap";
 import ItemProductos from "./componentesAdministrador/ItemProductos.jsx";
 import { Link } from "react-router-dom"; 
-import { cardsData } from "../../data/cardPrueba";
+import { cardsData } from "../data/cardsData.js";
 
 const Administrador = ({
   productos, 
   setProductos,
   borrarProducto,
-  editarProducto,
-  destacarProducto 
+  destacarProducto,
 }) => {
   const cargarDatosPrueba = () => {
     setProductos(cardsData);
@@ -49,7 +48,6 @@ const Administrador = ({
                 producto={producto}
                 destacarProducto={destacarProducto}
                 borrarProducto={borrarProducto}
-                editarProducto={editarProducto} 
               />
             ))
           ) : (

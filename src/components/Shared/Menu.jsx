@@ -17,7 +17,7 @@ const Menu = () => {
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src="/LogoVet.png"
+              src="./LogoVet.png" 
               width="50"
               height="50"
             />
@@ -58,13 +58,17 @@ const Menu = () => {
                 Solicitar Turno
               </Nav.Link>
               {/* logo del carrito */}
-              <Nav.Link href="#">
+              <Nav.Link 
+                as={NavLink} 
+                to="/detalle-producto/1"
+                className="fuentetextos"
+              >
                 <img
                   src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png"
                   width="30"
                   height="30"
                   className="d-inline-block align-top logoCarrito"
-                  alt="Logo de carrito"
+                  alt="Carrito de productos"
                 />
               </Nav.Link>
             </Nav>

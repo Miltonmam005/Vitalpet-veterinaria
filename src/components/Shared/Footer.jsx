@@ -18,7 +18,7 @@ function Footer() {
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src="/LogoVet.png"
+              src="./LogoVet.png"
               width="50"
               height="50"
             />
@@ -46,18 +46,18 @@ function Footer() {
               </li>
               <li className="textocolor">
                 <Link
-                  to={"/subscriptions"} 
+                  to={"/Error404"}
                   className="text-decoration-none text-white nav-link"
                 >
-                  Subscripciones
+                  Nuestros Productos
                 </Link>
               </li>
               <li className="textocolor">
                 <Link
-                  to={"/plans"} 
+                  to={"/login"}
                   className="text-decoration-none text-white nav-link"
                 >
-                  Solicitudes de Plan
+                  Área de Clientes
                 </Link>
               </li>
             </ul>
