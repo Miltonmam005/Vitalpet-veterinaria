@@ -1,9 +1,10 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
-import { login } from "../../helpers/queries"; 
+import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const Login = ({ setUsuarioAdmin }) => {
@@ -17,7 +18,7 @@ const Login = ({ setUsuarioAdmin }) => {
   const iniciarSesion = async (usuario) => {
     try {
       const respuesta = await login(usuario);
-      
+
       if (!respuesta) {
         Swal.fire({
           title: "Error de conexión",
@@ -150,7 +151,7 @@ const Login = ({ setUsuarioAdmin }) => {
                     variant="link"
                     className="p-0 text-success fw-bold text-decoration-none"
                     as={Link}
-                    to="/registro" 
+                    to="/registro"
                   >
                     Registrarse
                   </Button>

@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,8 +18,6 @@ import AdministrarTurnos from "./components/pages/administrarTurnos.jsx";
 import DetalleProductos from "./components/pages/DetalleProductos.jsx";
 import "./index.css";
 
-
-
 function App() {
   const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || {};
   const [usuarioAdmin, setUsuarioAdmin] = useState(usuarioLogueado);
@@ -33,14 +32,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/sobreNosotros" element={<SobreNosotros />} />
-        <Route 
-          path="/login" 
-          element={<Login setUsuarioAdmin={setUsuarioAdmin} />} 
+        <Route
+          path="/login"
+          element={<Login setUsuarioAdmin={setUsuarioAdmin} />}
         />
         <Route path="/registro" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/administrador" element={<Administrador />} />
-        <Route path="/administrar-pacientes" element={<AdministrarPacientes />} />
+        <Route
+          path="/administrar-pacientes"
+          element={<AdministrarPacientes />}
+        />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
         <Route path="*" element={<Error404 />} />
