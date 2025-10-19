@@ -1,35 +1,26 @@
 import { useParams } from "react-router";
-import { useState } from "react";
-import {useForm} from "react-hook-form"
+import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css';
 function FormularioPlan() {
   const { planNombre } = useParams();
-  const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    mascota: "",
-    edadMascota: "",
-  });
 
- const {
+  const {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+  const onSubmitForm = (data) => {
+    console.log("Formulario enviado:", { ...data, planSeleccionado: planNombre });
+    Swal.fire({
+  title: `Gracias ${data.nombre}`,
+  text: " el plan ha sido elegido!",
+  icon: "success"
+}).then(() => {
+      reset();
     });
-  };
-
-  const onSubmitForm  = (e) => {
-    e.preventDefault();
-    console.log("Formulario enviado:", { ...formData, planSeleccionado: planNombre });
-    alert(`Gracias ${formData.nombre}, el plan se ha elegido`);
   };
 
   return (
@@ -43,36 +34,54 @@ function FormularioPlan() {
             <h2 className="fw-bold text-verde mt-2">
               Suscribite al plan <span className="text-dorado">{planNombre}</span>
             </h2>
-            <p className="text-muted mb-0">Completá tus datos para cuidar mejor a tu mascota</p>
+            <p className="text-muted mb-0">
+              Completá tus datos para cuidar mejor a tu mascota
+            </p>
           </div>
 
-          <form onSubmit={onSubmitForm}>
+          {/* FORMULARIO */}
+          <form onSubmit={handleSubmit(onSubmitForm)}>
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">Nombre completo</label>
                 <input
                   type="text"
-                  name="nombre"
                   className="form-control rounded-pill shadow-sm"
-                  value={formData.nombre}
-                  onChange={handleChange}
                   placeholder="Ej: María González"
-                  required
-                  minLength="3"
-                  maxLength="20"
+                  {...register("nombre", {
+                    required: "El nombre es obligatorio",
+                    minLength: {
+                      value: 3,
+                      message: "Debe tener al menos 3 caracteres",
+                    },
+                    maxLength: {
+                      value: 30,
+                      message: "Máximo 30 caracteres",
+                    },
+                  })}
                 />
+                {errors.nombre && (
+                  <p className="text-danger small">{errors.nombre.message}</p>
+                )}
               </div>
+
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">Correo electrónico</label>
                 <input
                   type="email"
-                  name="email"
                   className="form-control rounded-pill shadow-sm"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder="Ej: maria@mail.com"
-                  required
+                  {...register("email", {
+                    required: "El correo es obligatorio",
+                    pattern: {
+                      value: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
+                      message: "Correo no válido",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <p className="text-danger small">{errors.email.message}</p>
+                )}
               </div>
             </div>
 
@@ -81,25 +90,38 @@ function FormularioPlan() {
                 <label className="form-label fw-semibold">Teléfono</label>
                 <input
                   type="tel"
-                  name="telefono"
                   className="form-control rounded-pill shadow-sm"
-                  value={formData.telefono}
-                  onChange={handleChange}
                   placeholder="Ej: +54 9 351 1234567"
-                  required
+                  {...register("telefono", {
+                    required: "El teléfono es obligatorio",
+                    pattern: {
+                      value: /^[0-9+\s-]{6,20}$/,
+                      message: "Número no válido",
+                    },
+                  })}
                 />
+                {errors.telefono && (
+                  <p className="text-danger small">{errors.telefono.message}</p>
+                )}
               </div>
+
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">Nombre de la mascota</label>
                 <input
                   type="text"
-                  name="mascota"
                   className="form-control rounded-pill shadow-sm"
-                  value={formData.mascota}
-                  onChange={handleChange}
                   placeholder="Ej: Rocky"
-                  required
+                  {...register("mascota", {
+                    required: "El nombre de la mascota es obligatorio",
+                    minLength: {
+                      value: 2,
+                      message: "Debe tener al menos 2 caracteres",
+                    },
+                  })}
                 />
+                {errors.mascota && (
+                  <p className="text-danger small">{errors.mascota.message}</p>
+                )}
               </div>
             </div>
 
@@ -107,13 +129,23 @@ function FormularioPlan() {
               <label className="form-label fw-semibold">Edad de la mascota</label>
               <input
                 type="number"
-                name="edadMascota"
                 className="form-control rounded-pill shadow-sm"
-                value={formData.edadMascota}
-                onChange={handleChange}
                 placeholder="Ej: 3"
-                required
+                {...register("edadMascota", {
+                  required: "La edad es obligatoria",
+                  min: {
+                    value: 0,
+                    message: "Debe ser mayor o igual a 0",
+                  },
+                  max: {
+                    value: 30,
+                    message: "Debe ser menor a 30 años",
+                  },
+                })}
               />
+              {errors.edadMascota && (
+                <p className="text-danger small">{errors.edadMascota.message}</p>
+              )}
             </div>
 
             <button

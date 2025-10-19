@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import 'sweetalert2/dist/sweetalert2.min.css';
 import Menu from "./components/Shared/Menu.jsx";
 import Footer from "./components/Shared/Footer.jsx";
 import Inicio from "./components/Inicio.jsx";
