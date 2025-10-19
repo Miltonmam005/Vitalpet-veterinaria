@@ -17,6 +17,7 @@ const Register = () => {
   } = useForm();
 
   const crearCuenta = async (usuario) => {
+    
     try {
       const respuesta = await crearUsuario(usuario);
       if (respuesta?.status === 201) {
