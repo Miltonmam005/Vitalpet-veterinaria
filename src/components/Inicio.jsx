@@ -13,7 +13,7 @@ const Inicio =()=>{
       <p className="text-light">
         "Cuidamos a tus mascotas como parte de nuestra familia"
       </p>
-      <button className="btn btn-success me-2">Conocer nuestros planes</button>
+      <button className="btn btn-success me-2 my-2">Conocer nuestros planes</button>
       <button className="btn btn-warning">Agenda tu turno</button>
     </div>
     <div className="col-12 col-lg-6 text-center">

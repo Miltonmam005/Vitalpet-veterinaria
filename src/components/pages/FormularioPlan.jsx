@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { useState } from "react";
-import {useFrom} from "react-hook-form"
+import {useForm} from "react-hook-form"
 function FormularioPlan() {
   const { planNombre } = useParams();
   const [formData, setFormData] = useState({
@@ -11,6 +11,14 @@ function FormularioPlan() {
     edadMascota: "",
   });
 
+ const {
+    register,
+    handleSubmit,
+    reset,
+    watch,
+    formState: { errors },
+  } = useForm();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -18,7 +26,7 @@ function FormularioPlan() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const onSubmitForm  = (e) => {
     e.preventDefault();
     console.log("Formulario enviado:", { ...formData, planSeleccionado: planNombre });
     alert(`Gracias ${formData.nombre}, el plan se ha elegido`);
@@ -30,7 +38,7 @@ function FormularioPlan() {
         <div className="card formulario-card shadow-lg p-4 rounded-5 col-12 col-md-8 col-lg-6">
           <div className="text-center mb-4">
             <div className="icono-circular mb-3">
-              <i class="bi bi-heart-pulse fs-2 text-light"></i>
+              <i className="bi bi-heart-pulse fs-2 text-light"></i>
             </div>
             <h2 className="fw-bold text-verde mt-2">
               Suscribite al plan <span className="text-dorado">{planNombre}</span>
@@ -38,7 +46,7 @@ function FormularioPlan() {
             <p className="text-muted mb-0">Completá tus datos para cuidar mejor a tu mascota</p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={onSubmitForm}>
             <div className="row">
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">Nombre completo</label>
@@ -50,8 +58,8 @@ function FormularioPlan() {
                   onChange={handleChange}
                   placeholder="Ej: María González"
                   required
-                  min-length="3"
-                  max-length="5"
+                  minLength="3"
+                  maxLength="20"
                 />
               </div>
               <div className="col-md-6 mb-3">
