@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import "../Styles/register.css";
 import icono from "../img/icono-veterinario.png";
 import Swal from "sweetalert2";
@@ -17,6 +17,7 @@ const Register = () => {
   } = useForm();
 
   const crearCuenta = async (usuario) => {
+    
     try {
       const respuesta = await crearUsuario(usuario);
       if (respuesta?.status === 201) {

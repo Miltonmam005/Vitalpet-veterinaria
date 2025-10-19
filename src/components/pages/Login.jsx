@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router"; 
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
 import { login } from "../../helpers/queries"; 
