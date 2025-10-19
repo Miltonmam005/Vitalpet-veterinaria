@@ -1,13 +1,11 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectorAdmin = ({ isAdmin }) => {
-  if (!isAdmin) {
-    return <Navigate to={"/"}></Navigate>;
+const ProtectorAdmin = ({ usuarioAdmin }) => {
+  if (!usuarioAdmin || !usuarioAdmin.token) {
+    return <Navigate to="/login" replace />;
   }
 
-  return (
-    <Outlet />
-  );
+  return <Outlet />;
 };
 
 export default ProtectorAdmin;

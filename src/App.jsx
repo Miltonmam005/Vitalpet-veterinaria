@@ -18,14 +18,16 @@ import DetalleProductos from "./components/pages/DetalleProductos.jsx";
 import ProtectorAdmin from "./components/routes/protectorAdmin.jsx"
 import "./index.css";
 
-
-
 function App() {
-  const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || {};
+  const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || null;
   const [usuarioAdmin, setUsuarioAdmin] = useState(usuarioLogueado);
-  const estadoAdmin
+
   useEffect(() => {
-    sessionStorage.setItem("userKey", JSON.stringify(usuarioAdmin));
+    if (usuarioAdmin) {
+      sessionStorage.setItem("userKey", JSON.stringify(usuarioAdmin));
+    } else {
+      sessionStorage.removeItem("userKey");
+    }
   }, [usuarioAdmin]);
 
   return (
@@ -40,9 +42,13 @@ function App() {
         />
         <Route path="/registro" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/administrador" element={<ProtectorAdmin isAdmin={usuarioAdmin}></ProtectorAdmin>}>
-           <Route index element={<Administrador></Administrador>}></Route>
-        </Route>  
+        <Route 
+          path="/administrador" 
+          element={<ProtectorAdmin usuarioAdmin={usuarioAdmin} />}
+        >
+          <Route index element={<Administrador />} />
+        </Route>
+
         <Route path="/administrar-pacientes" element={<AdministrarPacientes />} />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
@@ -52,5 +58,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;

@@ -6,7 +6,7 @@ import icono from "../img/icono-veterinario.png";
 import { login } from "../../helpers/queries"; 
 import Swal from "sweetalert2";
 
-const Login = ({ setUsuarioAdmin }) => {
+const Login = ({ setUsuarioAdmin,setestadoAdmin }) => {
   const {
     register,
     handleSubmit,
@@ -17,13 +17,8 @@ const Login = ({ setUsuarioAdmin }) => {
   const iniciarSesion = async (usuario) => {
     try {
       const respuesta = await login(usuario);
-      
       if (!respuesta) {
-        Swal.fire({
-          title: "Error de conexión",
-          text: "No se pudo conectar al servidor",
-          icon: "error",
-        });
+        Swal.fire("Error", "No se pudo conectar al servidor", "error");
         return;
       }
 
@@ -32,30 +27,19 @@ const Login = ({ setUsuarioAdmin }) => {
         setUsuarioAdmin({
           nombreUsuario: datosUsuario.nombreUsuario,
           token: datosUsuario.token,
+          rol: datosUsuario.rol || "admin", 
         });
-        Swal.fire({
-          title: "Inicio de sesión correcto",
-          text: `Bienvenido ${datosUsuario.nombreUsuario}`,
-          icon: "success",
-        });
-        navegacion("/administrador");
+
+        Swal.fire("Bienvenido", `Hola ${datosUsuario.nombreUsuario}`, "success");
+        navigate("/administrador");
       } else {
-        Swal.fire({
-          title: "Error al iniciar sesión",
-          text: "Credenciales incorrectas",
-          icon: "error",
-        });
+        Swal.fire("Error", "Credenciales incorrectas", "error");
       }
     } catch (error) {
       console.error("Error en login:", error);
-      Swal.fire({
-        title: "Error",
-        text: "Ocurrió un error inesperado",
-        icon: "error",
-      });
+      Swal.fire("Error", "Ocurrió un error inesperado", "error");
     }
   };
-
   return (
     <Container fluid className="login-container">
       <div className="login-wrapper">
