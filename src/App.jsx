@@ -1,8 +1,10 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FormularioPlan from "./components/pages/FormularioPlan.jsx";
+import { BrowserRouter, Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import 'sweetalert2/dist/sweetalert2.min.css';
 import Menu from "./components/Shared/Menu.jsx";
 import Footer from "./components/Shared/Footer.jsx";
 import Inicio from "./components/Inicio.jsx";
@@ -36,10 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/sobreNosotros" element={<SobreNosotros />} />
-        <Route 
-          path="/login" 
-          element={<Login setUsuarioAdmin={setUsuarioAdmin} />} 
-        />
+        <Route path="/login" element={<Login setUsuarioAdmin={setUsuarioAdmin} />} />
         <Route path="/registro" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route 
@@ -52,6 +51,7 @@ function App() {
         <Route path="/administrar-pacientes" element={<AdministrarPacientes />} />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
+        <Route path="/formularioplan" element={<FormularioPlan></FormularioPlan>}></Route>
         <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
