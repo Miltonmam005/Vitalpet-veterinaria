@@ -1,7 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
-import errorImage from "../../assets/errorgat.404.jpg";
-import "../../../index.css";
 import { Link } from "react-router";
+import errorGato from "../../assets/errorgat.404.jpg";
+import "./Error404.css";
+
 
 const Error404 = () => {
   return (
@@ -10,14 +11,17 @@ const Error404 = () => {
         <Row>
           <Col>
             <img
-              src={errorImage}
+              src={errorGato}
               alt="Página no encontrada"
-              className="img-fluid error-image mb-4"
+              className="img-fluid errorImg mb-4"
             />
-            <h2>Oops! Página no encontrada</h2>
-            <p>La URL a la que intentaste acceder no existe.</p>
-            <Link to="/" className="btn btn-outline-primary">
-              Volver al inicio
+            <h2>Lo sentimos, página no encontrada</h2>
+            <p>
+              La página a la que intentaste acceder no existe o ha sido
+              eliminada
+            </p>
+            <Link to="/" className="btn btn-outline-success">
+              Volver al Inicio
             </Link>
           </Col>
         </Row>
