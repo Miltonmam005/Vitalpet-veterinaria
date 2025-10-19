@@ -15,6 +15,7 @@ import Administrador from "./components/pages/Administrador.jsx";
 import AdministrarPacientes from "./components/pages/administrarPacientes.jsx";
 import AdministrarTurnos from "./components/pages/administrarTurnos.jsx";
 import DetalleProductos from "./components/pages/DetalleProductos.jsx";
+import ProtectorAdmin from "./components/routes/protectorAdmin.jsx"
 import "./index.css";
 
 
@@ -22,7 +23,7 @@ import "./index.css";
 function App() {
   const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || {};
   const [usuarioAdmin, setUsuarioAdmin] = useState(usuarioLogueado);
-
+  const estadoAdmin
   useEffect(() => {
     sessionStorage.setItem("userKey", JSON.stringify(usuarioAdmin));
   }, [usuarioAdmin]);
@@ -39,7 +40,9 @@ function App() {
         />
         <Route path="/registro" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/administrador" element={<Administrador />} />
+        <Route path="/administrador" element={<ProtectorAdmin isAdmin={usuarioAdmin}></ProtectorAdmin>}>
+           <Route index element={<Administrador></Administrador>}></Route>
+        </Route>  
         <Route path="/administrar-pacientes" element={<AdministrarPacientes />} />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
