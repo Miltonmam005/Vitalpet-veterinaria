@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import logo from "../../assets/LogoVet.png";
+import { NavLink } from "react-router-dom"; 
 
 const Menu = () => {
   return (
@@ -13,18 +13,18 @@ const Menu = () => {
         data-bs-theme="light"
       >
         <Container fluid>
-          {/* logo de la pagina*/}
-          <Nav.Link href="./">
+          <NavLink to="/" className="nav-link"> 
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src={logo}
+              src="./LogoVet.png" 
               width="50"
               height="50"
             />
-          </Nav.Link>
+          </NavLink>
           <Navbar.Brand
-            href="./"
+            as={NavLink} 
+            to="/"
             className="fuenteLogo color-logo-nav fuentetextos"
           >
             VitalPet
@@ -36,25 +36,39 @@ const Menu = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link className="fuentetextos" href="./">
+              <Nav.Link 
+                as={NavLink} 
+                to="/" 
+                className="fuentetextos"
+              >
                 Inicio
               </Nav.Link>
-              <Nav.Link className="fuentetextos" href="../pages/Error404.jsx">
+              <Nav.Link 
+                as={NavLink} 
+                to="/login" 
+                className="fuentetextos"
+              >
                 Login
               </Nav.Link>
-              <Nav.Link className="fuentetextos" href="/">
+              <Nav.Link 
+                as={NavLink} 
+                to="/contact" 
+                className="fuentetextos"
+              >
                 Solicitar Turno
               </Nav.Link>
               {/* logo del carrito */}
-              <Nav.Link href="#">
-                {" "}
-                {/* carrito */}
+              <Nav.Link 
+                as={NavLink} 
+                to="/detalle-producto/1"
+                className="fuentetextos"
+              >
                 <img
                   src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Cat.png"
                   width="30"
                   height="30"
                   className="d-inline-block align-top logoCarrito"
-                  alt="Logo de carrito"
+                  alt="Carrito de productos"
                 />
               </Nav.Link>
             </Nav>

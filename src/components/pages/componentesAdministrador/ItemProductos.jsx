@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { Link, useParams } from "react-router";
+import { Link } from "react-router-dom"; 
 import Swal from "sweetalert2";
 
 const ItemProducto = ({ producto, fila, borrarProducto, destacarProducto }) => {
@@ -11,20 +11,20 @@ const ItemProducto = ({ producto, fila, borrarProducto, destacarProducto }) => {
       showCancelButton: true,
       confirmButtonColor: "#277a35ff",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Si, quiero eliminar!",
+      confirmButtonText: "Sí, quiero eliminar!", 
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         if (borrarProducto(producto.id)) {
           Swal.fire({
-            title: "Producto eliminada!",
-            text: `El producto ${producto.title} fue eliminada correctamente`,
+            title: "Producto eliminado!", 
+            text: `El producto ${producto.title} fue eliminado correctamente`,
             icon: "success",
           });
         } else {
           Swal.fire({
             title: "Ocurrió un error!",
-            text: `El producto ${producto.title} no pudo ser eliminada`,
+            text: `El producto ${producto.title} no pudo ser eliminado`, 
             icon: "error",
           });
         }
@@ -37,8 +37,8 @@ const ItemProducto = ({ producto, fila, borrarProducto, destacarProducto }) => {
       <td className="text-center">{fila}</td>
       <td>{producto.title}</td>
       <td className="text-center">{producto.type}</td>
-      <td className="text-center">{producto.year}</td>
-      <td>{producto.genre}</td>
+      <td className="text-center">{producto.price || "N/A"}</td> 
+      <td>{producto.category || producto.genre || "Sin categoría"}</td> 
       <td className="text-center">
         <div className="d-flex gap-1 justify-content-center">
           <Link
@@ -55,13 +55,14 @@ const ItemProducto = ({ producto, fila, borrarProducto, destacarProducto }) => {
             <i className="bi bi-trash"></i>
           </Button>
           <Button
-            variant="transparent"
+            variant="outline-success" 
             onClick={() => destacarProducto(producto.id)}
+            className="border-0" 
           >
             {producto.destacada ? (
-              <i className="bi bi-star-fill fs-4 text-success"></i>
+              <i className="bi bi-star-fill fs-5 text-warning"></i> 
             ) : (
-              <i className="bi bi-star text-success"></i>
+              <i className="bi bi-star fs-5 text-secondary"></i> 
             )}
           </Button>
         </div>

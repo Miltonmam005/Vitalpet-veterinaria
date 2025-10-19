@@ -87,27 +87,49 @@ Error 404 - Página personalizada
 
 ## 🗂️ Estructura del Proyecto
  
-rollingvet/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── common/
-│   │   │   ├── admin/
-│   │   │   ├── forms/
-│   │   │   └── layout/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── styles/
-│   │   └── utils/
-│   └── package.json
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── config/
-│   └── server.js
+src/
+├── components/
+│   ├── data/
+│   │       ├── cardsData.js
+│   ├── img/
+│   │       ├── benja
+│   │       ├── celina
+│   │       ├── icono-veterinario.png
+│   │       ├── milton.jpeg
+│   │       └── santiago.jpge
+│   ├── pages/
+│   │       ├──componentesAdministrador
+│   │       │      ├──ItemProductos.jsx
+│   │       ├── Administrador.jsx
+│   │       ├── administrarPacientes.jsx
+│   │       ├── administrarTurnos.jsx
+│   │       ├── Contact.jsx
+│   │       ├── DetalleProductos.jsx
+│   │       ├── Error404.css
+│   │       ├── Error404.jsx
+│   │       ├── Login.jsx
+│   │       ├── Register.jsx
+│   │       └── sobreNosotros.jsx
+│   ├── Shared/
+│   │       ├── Menu.jsx
+│   │       └── Footer.jsx
+│   ├── Styles/
+│   │       ├── contacto.css
+│   │       ├── loguin.css
+│   │       └── register.css
+│   └── Inicio.jsx/
+│   
+├── helpers/
+│           └── queries.js
+├── assets
+│        ├── Error404Gat.png
+│        ├── LogoVet.png
+│        └── errorgat.404.jpg
+├── App.jsx
+├── index.css
+├── index.html
+├── package-
+├── main.jsx
 └── README.md
 -------------
 

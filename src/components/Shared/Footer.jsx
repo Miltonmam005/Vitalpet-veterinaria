@@ -1,7 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Link } from "react-router-dom";
-import logo from "../../assets/LogoVet.png";
+import { Link } from "react-router-dom"; 
 
 function Footer() {
   return (
@@ -19,7 +18,7 @@ function Footer() {
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src={logo}
+              src="./LogoVet.png"
               width="50"
               height="50"
             />
@@ -30,9 +29,12 @@ function Footer() {
             </h5>
             <ul className="list-unstyled ">
               <li className="textocolor">
-                <a href="" className="text-decoration-none text-white ">
-                  Contacto
-                </a>
+                <Link
+                  to={"/contact"}
+                  className="text-decoration-none text-white nav-link"
+                >
+                  Contáctanos
+                </Link>
               </li>
               <li className="textocolor">
                 <Link
@@ -43,17 +45,20 @@ function Footer() {
                 </Link>
               </li>
               <li className="textocolor">
-                <a
-                  href="../pages/Error404.jsx"
-                  className="text-decoration-none text-white"
+                <Link
+                  to={"/Error404"}
+                  className="text-decoration-none text-white nav-link"
                 >
-                  Subscripciones
-                </a>
+                  Nuestros Productos
+                </Link>
               </li>
               <li className="textocolor">
-                <a href="" className="text-decoration-none text-white">
-                  Solicituides de Plan
-                </a>
+                <Link
+                  to={"/login"}
+                  className="text-decoration-none text-white nav-link"
+                >
+                  Área de Clientes
+                </Link>
               </li>
             </ul>
           </Col>

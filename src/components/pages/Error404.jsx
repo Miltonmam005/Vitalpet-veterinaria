@@ -1,23 +1,23 @@
 import { Container, Row, Col } from "react-bootstrap";
-import "./Error404.css";
-import "../../index.css";
 import { Link } from "react-router-dom";
-import errorImagen from "../../assets/errorgat.404.jpg";
+import errorGato from "../../assets/errorgat.404.jpg";
+import "./Error404.css";
+
 
 const Error404 = () => {
   return (
-    <section className=" container-fluid bg-light text-dark">
-      <Container className=" text-center py-5">
+    <section className="container-fluid bg-light text-dark">
+      <Container className="text-center py-5">
         <Row>
           <Col>
             <img
-              src={errorImagen}
-              alt="Pagina no encontrada"
+              src={errorGato}
+              alt="Página no encontrada"
               className="img-fluid errorImg mb-4"
             />
-            <h2> Lo Siento pagina no encontrada</h2>
+            <h2>Lo sentimos, página no encontrada</h2>
             <p>
-              La pagina a la que intentaste acceder no existe o ha sido
+              La página a la que intentaste acceder no existe o ha sido
               eliminada
             </p>
             <Link to="/" className="btn btn-outline-success">
