@@ -8,45 +8,39 @@ import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
-const Login = ({ setUsuarioAdmin }) => {
-  const {
-    register, 
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const Login = ({ setUsuarioAdmin }) => {
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm();
 
-  const navegacion = useNavigate();
+    const navegacion = useNavigate();
 
-  const iniciarSesion = async (usuario) => {
-    const respuesta = await login(usuario);
-    if (respuesta.status === 200) {
-      const datosUsuario = await respuesta.json();
-      setUsuarioAdmin({
-        nombreUsuario: datosUsuario.nombreUsuario,
-        token: datosUsuario.token,
-      });
-      Swal.fire({
-        title: "Inicio de sesion correcto",
-        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
-        icon: "success",
-      });
-
-        Swal.fire("Bienvenido", `Hola ${datosUsuario.nombreUsuario}`, "success");
+    const iniciarSesion = async (usuario) => {
+      const respuesta = await login(usuario);
+      if (respuesta.status === 200) {
+        const datosUsuario = await respuesta.json();
+        //actualizar el state usuarioAdmin
+        //guardar los datos en el sessionStorage
+        setUsuarioAdmin({
+          nombreUsuario: datosUsuario.nombreUsuario,
+          token: datosUsuario.token,
+        });
+        Swal.fire({
+          title: "Inicio de sesion correcto",
+          text: `Bienvenido ${datosUsuario.nombreUsuario}`,
+          icon: "success",
+        });
         navegacion("/administrador");
       } else {
-        Swal.fire("Error", "Credenciales incorrectas", "error");
+        Swal.fire({
+          title: "Error al iniciar sesion",
+          text: `Credenciales incorrectas`,
+          icon: "error",
+        });
       }
-    } catch (error) {
-      console.error("Error en login:", error);
-      Swal.fire("Error", "Ocurrió un error inesperado", "error");
-      navegacion("/administrador");
-    } else {
-      Swal.fire({
-        title: "Error al iniciar sesion",
-        text: `Credenciales incorrectas`,
-        icon: "error",
-      });
-    }
+    };
   };
 
   return (
