@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import errorGato from "../../assets/errorgat.404.jpg";
 import "../Styles/Error404.css";
 

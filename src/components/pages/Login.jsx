@@ -37,7 +37,6 @@ const Login = ({ setUsuarioAdmin }) => {
       });
     }
   };
-
   return (
     <div className="login-wrapper">
       <Container fluid className="login-container">

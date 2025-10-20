@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import 'sweetalert2/dist/sweetalert2.min.css';
 import Menu from "./components/Shared/Menu.jsx";
 import Footer from "./components/Shared/Footer.jsx";
 import Inicio from "./components/Inicio.jsx";
@@ -16,14 +17,19 @@ import Administrador from "./components/pages/Administrador.jsx";
 import AdministrarPacientes from "./components/pages/administrarPacientes.jsx";
 import AdministrarTurnos from "./components/pages/administrarTurnos.jsx";
 import DetalleProductos from "./components/pages/DetalleProductos.jsx";
+import ProtectorAdmin from "./components/routes/protectorAdmin.jsx"
 import "./index.css";
 
 function App() {
-  const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || {};
+  const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || null;
   const [usuarioAdmin, setUsuarioAdmin] = useState(usuarioLogueado);
 
   useEffect(() => {
-    sessionStorage.setItem("userKey", JSON.stringify(usuarioAdmin));
+    if (usuarioAdmin) {
+      sessionStorage.setItem("userKey", JSON.stringify(usuarioAdmin));
+    } else {
+      sessionStorage.removeItem("userKey");
+    }
   }, [usuarioAdmin]);
 
   return (
@@ -45,6 +51,7 @@ function App() {
         />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
+        <Route path="/formularioplan" element={<FormularioPlan></FormularioPlan>}></Route>
         <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
