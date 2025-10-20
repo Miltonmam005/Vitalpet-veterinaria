@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Link } from "react-router"; 
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -18,7 +18,7 @@ function Footer() {
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src="./LogoVet.png"
+              src="./public/LogoVet.png"
               width="50"
               height="50"
             />

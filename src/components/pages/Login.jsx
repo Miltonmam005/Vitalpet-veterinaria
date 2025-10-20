@@ -1,17 +1,18 @@
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router"; 
+import { Link, useNavigate } from "react-router";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
 import { login } from "../../helpers/queries"; 
 import Swal from "sweetalert2";
 
-const Login = ({ setUsuarioAdmin,setestadoAdmin }) => {
+const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
   const {
-    register,
+    register, 
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navegacion = useNavigate();
 
   const iniciarSesion = async (usuario) => {
@@ -31,7 +32,7 @@ const Login = ({ setUsuarioAdmin,setestadoAdmin }) => {
         });
 
         Swal.fire("Bienvenido", `Hola ${datosUsuario.nombreUsuario}`, "success");
-        navigate("/administrador");
+        navegacion("/administrador");
       } else {
         Swal.fire("Error", "Credenciales incorrectas", "error");
       }
@@ -40,6 +41,7 @@ const Login = ({ setUsuarioAdmin,setestadoAdmin }) => {
       Swal.fire("Error", "Ocurrió un error inesperado", "error");
     }
   };
+
   return (
     <Container fluid className="login-container">
       <div className="login-wrapper">

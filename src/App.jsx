@@ -1,5 +1,5 @@
 import FormularioPlan from "./components/pages/FormularioPlan.jsx";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -16,12 +16,13 @@ import Error404 from "./components/pages/Error404.jsx";
 import Administrador from "./components/pages/Administrador.jsx";
 import AdministrarPacientes from "./components/pages/administrarPacientes.jsx";
 import AdministrarTurnos from "./components/pages/administrarTurnos.jsx";
+import FormularioProducto from "./components/pages/FormularioProducto.jsx";
 import DetalleProductos from "./components/pages/DetalleProductos.jsx";
 import ProtectorAdmin from "./components/routes/protectorAdmin.jsx"
 import "./index.css";
 
 function App() {
-  const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || null;
+  const usuarioLogueado = JSON.parse(sessionStorage.getItem("userKey")) || false;
   const [usuarioAdmin, setUsuarioAdmin] = useState(usuarioLogueado);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Menu />
+      <Menu></Menu>
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/sobreNosotros" element={<SobreNosotros />} />
@@ -42,12 +43,26 @@ function App() {
         <Route path="/registro" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
         <Route 
-          path="/administrador" 
-          element={<ProtectorAdmin usuarioAdmin={usuarioAdmin} />}
-        >
-          <Route index element={<Administrador />} />
-        </Route>
-
+          path="/administrador"
+          element={
+            <ProtectorAdmin usuarioAdmin={usuarioAdmin}>
+              <Administrador />
+            </ProtectorAdmin>}
+        />
+        <Route 
+          path="/administrador/crear"
+          element={
+            <ProtectorAdmin usuarioAdmin={usuarioAdmin}>
+              <FormularioProducto titulo="Agregar Producto" />
+            </ProtectorAdmin>}
+        />
+        <Route 
+          path="/administrador/editar/:id"
+          element={
+            <ProtectorAdmin usuarioAdmin={usuarioAdmin}>
+              <FormularioProducto titulo="Editar Producto" />
+            </ProtectorAdmin>}
+        />
         <Route path="/administrar-pacientes" element={<AdministrarPacientes />} />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
