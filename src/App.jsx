@@ -1,5 +1,5 @@
-import FormularioPlan from "./components/pages/FormularioPlan.jsx";
-import { BrowserRouter, Route, Routes } from "react-router";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -38,17 +38,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/sobreNosotros" element={<SobreNosotros />} />
-        <Route path="/login" element={<Login setUsuarioAdmin={setUsuarioAdmin} />} />
+        <Route
+          path="/login"
+          element={<Login setUsuarioAdmin={setUsuarioAdmin} />}
+        />
         <Route path="/registro" element={<Register />} />
         <Route path="/contact" element={<Contact />} />
-        <Route 
-          path="/administrador" 
-          element={<ProtectorAdmin usuarioAdmin={usuarioAdmin} />}
-        >
-          <Route index element={<Administrador />} />
-        </Route>
-
-        <Route path="/administrar-pacientes" element={<AdministrarPacientes />} />
+        <Route path="/administrador" element={<Administrador />} />
+        <Route
+          path="/administrar-pacientes"
+          element={<AdministrarPacientes />}
+        />
         <Route path="/administrar-turnos" element={<AdministrarTurnos />} />
         <Route path="/detalle-producto/:id" element={<DetalleProductos />} />
         <Route path="/formularioplan" element={<FormularioPlan></FormularioPlan>}></Route>
@@ -58,4 +58,5 @@ function App() {
     </BrowserRouter>
   );
 }
+
 export default App;
