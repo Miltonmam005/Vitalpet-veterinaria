@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
-import 'sweetalert2/dist/sweetalert2.min.css';
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 function FormularioPlan() {
   const { planNombre } = useParams();
 
@@ -13,12 +13,15 @@ function FormularioPlan() {
   } = useForm();
 
   const onSubmitForm = (data) => {
-    console.log("Formulario enviado:", { ...data, planSeleccionado: planNombre });
+    console.log("Formulario enviado:", {
+      ...data,
+      planSeleccionado: planNombre,
+    });
     Swal.fire({
-  title: `Gracias ${data.nombre}`,
-  text: " el plan ha sido elegido!",
-  icon: "success"
-}).then(() => {
+      title: `Gracias ${data.nombre}`,
+      text: " el plan ha sido elegido!",
+      icon: "success",
+    }).then(() => {
       reset();
     });
   };
@@ -32,7 +35,8 @@ function FormularioPlan() {
               <i className="bi bi-heart-pulse fs-2 text-light"></i>
             </div>
             <h2 className="fw-bold text-verde mt-2">
-              Suscribite al plan <span className="text-dorado">{planNombre}</span>
+              Suscribite al plan{" "}
+              <span className="text-dorado">{planNombre}</span>
             </h2>
             <p className="text-muted mb-0">
               Completá tus datos para cuidar mejor a tu mascota
@@ -43,7 +47,9 @@ function FormularioPlan() {
           <form onSubmit={handleSubmit(onSubmitForm)}>
             <div className="row">
               <div className="col-md-6 mb-3">
-                <label className="form-label fw-semibold">Nombre completo</label>
+                <label className="form-label fw-semibold">
+                  Nombre completo
+                </label>
                 <input
                   type="text"
                   className="form-control rounded-pill shadow-sm"
@@ -66,7 +72,9 @@ function FormularioPlan() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label className="form-label fw-semibold">Correo electrónico</label>
+                <label className="form-label fw-semibold">
+                  Correo electrónico
+                </label>
                 <input
                   type="email"
                   className="form-control rounded-pill shadow-sm"
@@ -106,7 +114,9 @@ function FormularioPlan() {
               </div>
 
               <div className="col-md-6 mb-3">
-                <label className="form-label fw-semibold">Nombre de la mascota</label>
+                <label className="form-label fw-semibold">
+                  Nombre de la mascota
+                </label>
                 <input
                   type="text"
                   className="form-control rounded-pill shadow-sm"
@@ -126,7 +136,9 @@ function FormularioPlan() {
             </div>
 
             <div className="mb-4">
-              <label className="form-label fw-semibold">Edad de la mascota</label>
+              <label className="form-label fw-semibold">
+                Edad de la mascota
+              </label>
               <input
                 type="number"
                 className="form-control rounded-pill shadow-sm"
@@ -144,7 +156,9 @@ function FormularioPlan() {
                 })}
               />
               {errors.edadMascota && (
-                <p className="text-danger small">{errors.edadMascota.message}</p>
+                <p className="text-danger small">
+                  {errors.edadMascota.message}
+                </p>
               )}
             </div>
 
