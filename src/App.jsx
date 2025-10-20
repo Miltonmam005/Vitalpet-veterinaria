@@ -35,7 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Menu></Menu>
+      <Menu usuarioAdmin={usuarioAdmin} setUsuarioAdmin={setUsuarioAdmin}></Menu>
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/sobreNosotros" element={<SobreNosotros />} />
