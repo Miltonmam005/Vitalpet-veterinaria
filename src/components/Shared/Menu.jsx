@@ -1,10 +1,16 @@
+
+import { Button } from "bootstrap/dist/js/bootstrap.min";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 
-const Menu = () => {
+const Menu = (usuarioAdmin, setUsuarioAdmin) => {
   return (
     <>
       <Navbar
@@ -40,6 +46,29 @@ const Menu = () => {
               <Nav.Link as={NavLink} to="/" className="fuentetextos">
                 Inicio
               </Nav.Link>
+                {
+                  usuarioAdmin ? (<>
+                  <Nav.Link 
+                    as={NavLink} 
+                    to="/administrador" 
+                    className="fuentetextos"
+                  >
+                    Administrador
+                  </Nav.Link>
+                 <Button className="nav-link">Logout</Button>    
+                 </> ) :(<Nav.Link 
+                as={NavLink} 
+                to="/login" 
+                className="fuentetextos"
+              >
+                Login
+              </Nav.Link>) }
+              
+              <Nav.Link 
+                as={NavLink} 
+                to="/contact" 
+                className="fuentetextos"
+              >
               <Nav.Link as={NavLink} to="/login" className="fuentetextos">
                 Login
               </Nav.Link>

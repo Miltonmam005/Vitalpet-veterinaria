@@ -6,12 +6,15 @@ import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
 import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
+
+const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
 const Login = ({ setUsuarioAdmin }) => {
   const {
-    register,
+    register, 
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const navegacion = useNavigate();
 
   const iniciarSesion = async (usuario) => {
@@ -28,6 +31,14 @@ const Login = ({ setUsuarioAdmin }) => {
         icon: "success",
       });
 
+        Swal.fire("Bienvenido", `Hola ${datosUsuario.nombreUsuario}`, "success");
+        navegacion("/administrador");
+      } else {
+        Swal.fire("Error", "Credenciales incorrectas", "error");
+      }
+    } catch (error) {
+      console.error("Error en login:", error);
+      Swal.fire("Error", "Ocurrió un error inesperado", "error");
       navegacion("/administrador");
     } else {
       Swal.fire({
@@ -37,6 +48,7 @@ const Login = ({ setUsuarioAdmin }) => {
       });
     }
   };
+
   return (
     <div className="login-wrapper">
       <Container fluid className="login-container">
