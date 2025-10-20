@@ -1,6 +1,11 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
+
 import { Link } from "react-router";
+
+import { Link } from "react-router-dom";
+
 
 function Footer() {
   return (

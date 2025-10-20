@@ -1,3 +1,4 @@
+import React from "react";
 import { Image } from "react-bootstrap";
 import milton from "../img/milton.jpeg";
 import benja from "../img/benja.jpeg";

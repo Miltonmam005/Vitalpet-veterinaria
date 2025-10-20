@@ -1,3 +1,4 @@
+import React from "react";
 import { Button, Table } from "react-bootstrap";
 import ItemProductos from "./componentesAdministrador/ItemProductos.jsx";
 import { Link } from "react-router";

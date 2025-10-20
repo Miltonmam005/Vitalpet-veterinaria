@@ -1,12 +1,14 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
-import { login } from "../../helpers/queries"; 
+import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
 const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
+const Login = ({ setUsuarioAdmin }) => {
   const {
     register, 
     handleSubmit,
@@ -16,20 +18,18 @@ const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
   const navegacion = useNavigate();
 
   const iniciarSesion = async (usuario) => {
-    try {
-      const respuesta = await login(usuario);
-      if (!respuesta) {
-        Swal.fire("Error", "No se pudo conectar al servidor", "error");
-        return;
-      }
-
-      if (respuesta.status === 200) {
-        const datosUsuario = await respuesta.json();
-        setUsuarioAdmin({
-          nombreUsuario: datosUsuario.nombreUsuario,
-          token: datosUsuario.token,
-          rol: datosUsuario.rol || "admin", 
-        });
+    const respuesta = await login(usuario);
+    if (respuesta.status === 200) {
+      const datosUsuario = await respuesta.json();
+      setUsuarioAdmin({
+        nombreUsuario: datosUsuario.nombreUsuario,
+        token: datosUsuario.token,
+      });
+      Swal.fire({
+        title: "Inicio de sesion correcto",
+        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
+        icon: "success",
+      });
 
         Swal.fire("Bienvenido", `Hola ${datosUsuario.nombreUsuario}`, "success");
         navegacion("/administrador");
@@ -39,12 +39,19 @@ const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
     } catch (error) {
       console.error("Error en login:", error);
       Swal.fire("Error", "Ocurrió un error inesperado", "error");
+      navegacion("/administrador");
+    } else {
+      Swal.fire({
+        title: "Error al iniciar sesion",
+        text: `Credenciales incorrectas`,
+        icon: "error",
+      });
     }
   };
 
   return (
-    <Container fluid className="login-container">
-      <div className="login-wrapper">
+    <div className="login-wrapper">
+      <Container fluid className="login-container">
         <Row className="g-0">
           <Col
             md={6}
@@ -78,7 +85,7 @@ const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
                         value:
                           /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                         message:
-                          "El email debe tener un formato válido, por ej: pedro@gmail.com",
+                          "El email debe tener un formato valido, por ej: pedro@gmail.com",
                       },
                     })}
                   />
@@ -88,7 +95,6 @@ const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
                     </Form.Text>
                   )}
                 </Form.Group>
-
                 <Form.Group className="mb-3" controlId="password">
                   <Form.Label>Contraseña *</Form.Label>
                   <Form.Control
@@ -136,7 +142,7 @@ const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
                     variant="link"
                     className="p-0 text-success fw-bold text-decoration-none"
                     as={Link}
-                    to="/registro" 
+                    to="/registro"
                   >
                     Registrarse
                   </Button>
@@ -145,8 +151,8 @@ const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
             </div>
           </Col>
         </Row>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
