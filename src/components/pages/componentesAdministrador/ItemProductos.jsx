@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router"; 
 import Swal from "sweetalert2";
 
 const ItemProducto = ({ producto, fila, borrarProducto, destacarProducto }) => {

@@ -1,9 +1,16 @@
+
+import { Button } from "bootstrap/dist/js/bootstrap.min";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink } from "react-router-dom"; 
+import { NavLink } from "react-router";
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
 
-const Menu = () => {
+const Menu = (usuarioAdmin, setUsuarioAdmin) => {
   return (
     <>
       <Navbar
@@ -13,17 +20,17 @@ const Menu = () => {
         data-bs-theme="light"
       >
         <Container fluid>
-          <NavLink to="/" className="nav-link"> 
+          <NavLink to="/" className="nav-link">
             <img
               className="d-inline-block m-lg-1 align-top stiloLogoNav"
               alt="logo Veterinaria"
-              src="./LogoVet.png" 
+              src="./LogoVet.png"
               width="50"
               height="50"
             />
           </NavLink>
           <Navbar.Brand
-            as={NavLink} 
+            as={NavLink}
             to="/"
             className="fuenteLogo color-logo-nav fuentetextos"
           >
@@ -36,30 +43,41 @@ const Menu = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link 
-                as={NavLink} 
-                to="/" 
-                className="fuentetextos"
-              >
+              <Nav.Link as={NavLink} to="/" className="fuentetextos">
                 Inicio
               </Nav.Link>
-              <Nav.Link 
+                {
+                  usuarioAdmin ? (<>
+                  <Nav.Link 
+                    as={NavLink} 
+                    to="/administrador" 
+                    className="fuentetextos"
+                  >
+                    Administrador
+                  </Nav.Link>
+                 <Button className="nav-link">Logout</Button>    
+                 </> ) :(<Nav.Link 
                 as={NavLink} 
                 to="/login" 
                 className="fuentetextos"
               >
                 Login
-              </Nav.Link>
+              </Nav.Link>) }
+              
               <Nav.Link 
                 as={NavLink} 
                 to="/contact" 
                 className="fuentetextos"
               >
+              <Nav.Link as={NavLink} to="/login" className="fuentetextos">
+                Login
+              </Nav.Link>
+              <Nav.Link as={NavLink} to="/contact" className="fuentetextos">
                 Solicitar Turno
               </Nav.Link>
               {/* logo del carrito */}
-              <Nav.Link 
-                as={NavLink} 
+              <Nav.Link
+                as={NavLink}
                 to="/detalle-producto/1"
                 className="fuentetextos"
               >
