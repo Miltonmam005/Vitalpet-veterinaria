@@ -1,49 +1,47 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import "../Styles/login.css";
 import icono from "../img/icono-veterinario.png";
 import { login } from "../../helpers/queries";
 import Swal from "sweetalert2";
 
-const Login = ({ setUsuarioAdmin, setestadoAdmin }) => {
 const Login = ({ setUsuarioAdmin }) => {
   const {
-    register, 
+    register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const navegacion = useNavigate();
 
   const iniciarSesion = async (usuario) => {
-    const respuesta = await login(usuario);
-    if (respuesta.status === 200) {
-      const datosUsuario = await respuesta.json();
-      setUsuarioAdmin({
-        nombreUsuario: datosUsuario.nombreUsuario,
-        token: datosUsuario.token,
-      });
-      Swal.fire({
-        title: "Inicio de sesion correcto",
-        text: `Bienvenido ${datosUsuario.nombreUsuario}`,
-        icon: "success",
-      });
-
-        Swal.fire("Bienvenido", `Hola ${datosUsuario.nombreUsuario}`, "success");
+    try {
+      const respuesta = await login(usuario);
+      if (respuesta.status === 200) {
+        const datosUsuario = await respuesta.json();
+        setUsuarioAdmin({
+          nombreUsuario: datosUsuario.nombreUsuario,
+          token: datosUsuario.token,
+        });
+        Swal.fire({
+          title: "Inicio de sesión correcto",
+          text: `Bienvenido ${datosUsuario.nombreUsuario}`,
+          icon: "success",
+        });
         navegacion("/administrador");
       } else {
-        Swal.fire("Error", "Credenciales incorrectas", "error");
+        Swal.fire({
+          title: "Error al iniciar sesión",
+          text: "Credenciales incorrectas",
+          icon: "error",
+        });
       }
     } catch (error) {
       console.error("Error en login:", error);
-      Swal.fire("Error", "Ocurrió un error inesperado", "error");
-      navegacion("/administrador");
-    } else {
       Swal.fire({
-        title: "Error al iniciar sesion",
-        text: `Credenciales incorrectas`,
+        title: "Error",
+        text: "Ocurrió un error inesperado",
         icon: "error",
       });
     }
@@ -85,7 +83,7 @@ const Login = ({ setUsuarioAdmin }) => {
                         value:
                           /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
                         message:
-                          "El email debe tener un formato valido, por ej: pedro@gmail.com",
+                          "El email debe tener un formato válido, por ej: pedro@gmail.com",
                       },
                     })}
                   />
@@ -95,6 +93,7 @@ const Login = ({ setUsuarioAdmin }) => {
                     </Form.Text>
                   )}
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="password">
                   <Form.Label>Contraseña *</Form.Label>
                   <Form.Control
@@ -119,23 +118,25 @@ const Login = ({ setUsuarioAdmin }) => {
                     </Form.Text>
                   )}
                 </Form.Group>
+
                 <Button
                   type="submit"
                   className="w-100 login-button fw-semibold py-2 mb-3"
                 >
                   Ingresar
                 </Button>
+
                 <div className="login-links">
-                  <p className="mb-1 text-muted  text-center"></p>
                   <Button
                     variant="link"
-                    className="p-0 m-0 text-success text-decoration-none d-flex  justify-content-center"
+                    className="p-0 m-0 text-success text-decoration-none d-flex justify-content-center"
                     as={Link}
                     to="/error404"
                   >
                     ¿Olvidaste tu contraseña?
                   </Button>
                 </div>
+
                 <div className="login-links mt-3 d-flex justify-content-center align-items-center gap-1">
                   <span className="text-muted small">¿No tienes cuenta?</span>
                   <Button
